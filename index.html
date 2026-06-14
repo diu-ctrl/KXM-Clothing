@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KXM — More Than Just Fashion</title>
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="stylesheet" href="assets/css/cart.css" />
   <meta name="description" content="Informed by culture, within the context of today's world. KXM produces refined clothing that makes space for both intention and freedom." />
 
   <!-- Open Graph / Facebook -->
@@ -1393,13 +1394,45 @@
       <span class="cart-header-title">My Cart</span>
       <button class="cart-close-btn" id="cartCloseBtn">Close</button>
     </div>
-    <div class="cart-content">
+    
+    <!-- Cart Items Scroll Area -->
+    <div class="cart-items-container" id="cartItemsContainer">
+      <!-- Populated dynamically -->
+    </div>
+    
+    <!-- Cart Footer Panel -->
+    <div class="cart-footer" id="cartFooter">
+      <div class="cart-footer-row">
+        <span class="cart-footer-label">Subtotal</span>
+        <span class="cart-footer-value" id="cartSubtotalValue">₹0</span>
+      </div>
+      <div class="cart-footer-row">
+        <span class="cart-footer-label">Shipping</span>
+        <span class="cart-footer-value shipping-calculated">Calculated at checkout</span>
+      </div>
+      <div class="cart-footer-divider"></div>
+      <button class="cart-checkout-btn" id="cartCheckoutBtn">Checkout</button>
+    </div>
+
+    <!-- Empty State -->
+    <div class="cart-empty-state" id="cartEmptyState">
       <h3 class="cart-empty-title">Your Cart is Empty</h3>
       <p class="cart-empty-subtitle">Come on, treat yourself. You deserve it.</p>
       <a href="shop.html" class="cart-shop-now-btn" id="cartShopNowBtn">[ Shop Now ]</a>
     </div>
   </div>
   <div id="cartBackdrop" class="cart-backdrop"></div>
+
+  <!-- Checkout Demo Modal Overlay -->
+  <div id="checkoutModal" class="checkout-modal-overlay">
+    <div class="checkout-modal">
+      <button class="checkout-modal-close-btn" id="checkoutModalCloseBtn" aria-label="Close modal">&times;</button>
+      <h3 class="checkout-modal-heading">Thank You for Exploring</h3>
+      <p class="checkout-modal-text">This is a demonstration website created for portfolio purposes. Kxm. is an imaginary brand, and purchases cannot be completed.</p>
+      <p class="checkout-modal-text">If you're interested in a website like this for your brand, let's talk.</p>
+      <a href="mailto:divyarajc2@gmail.com" class="checkout-modal-cta-btn">Get in Touch</a>
+    </div>
+  </div>
 
   <!-- ══════════════════════════════
        HERO
@@ -1953,47 +1986,6 @@
       });
     }
 
-    // ── CART DRAWER TOGGLE ──
-    const cartDrawer = document.getElementById('cartDrawer');
-    const cartBackdrop = document.getElementById('cartBackdrop');
-    const cartCloseBtn = document.getElementById('cartCloseBtn');
-    const cartShopNowBtn = document.getElementById('cartShopNowBtn');
-    const cartOpenBtns = document.querySelectorAll('.js-cart-open');
-
-    function openCart() {
-      if (body.classList.contains('menu-open')) {
-        closeMenu();
-      }
-      body.classList.add('cart-open');
-    }
-
-    function closeCart() {
-      body.classList.remove('cart-open');
-    }
-
-    cartOpenBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        openCart();
-      });
-    });
-
-    if (cartCloseBtn) {
-      cartCloseBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        closeCart();
-      });
-    }
-
-    if (cartShopNowBtn) {
-      cartShopNowBtn.addEventListener('click', () => {
-        closeCart();
-      });
-    }
-
-    cartBackdrop.addEventListener('click', closeCart);
-
     // ── FOOTER NEWSLETTER FORM SUBMIT ──
     const newsletterForm = document.getElementById('newsletterForm');
     const formFields = newsletterForm.querySelector('.form-fields');
@@ -2038,6 +2030,7 @@
       });
     });
   </script>
+  <script src="assets/js/cart.js"></script>
 
 </body>
 </html>

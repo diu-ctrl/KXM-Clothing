@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KXM — All Products</title>
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="stylesheet" href="assets/css/cart.css" />
   <meta name="description" content="Explore the KXM catalog of refined garments sourced from heritage mills in Italy and Japan." />
 
   <!-- Open Graph / Facebook -->
@@ -528,7 +529,7 @@
     <div class="shop-grid">
 
       <!-- Product 1 -->
-      <a href="#" class="product-card js-reveal">
+      <a href="product.html?id=obsidian-blazer" class="product-card js-reveal">
         <div class="product-img-container">
           <img src="assets/images/product-1.png" alt="Obsidian Blazer" loading="lazy" />
         </div>
@@ -542,7 +543,7 @@
       </a>
 
       <!-- Product 2 -->
-      <a href="#" class="product-card js-reveal js-reveal-delay-1">
+      <a href="product.html?id=ivory-wide-leg" class="product-card js-reveal js-reveal-delay-1">
         <div class="product-img-container">
           <img src="assets/images/product-2.png" alt="Ivory Wide-Leg" loading="lazy" />
         </div>
@@ -556,7 +557,7 @@
       </a>
 
       <!-- Product 3 -->
-      <a href="#" class="product-card js-reveal js-reveal-delay-2">
+      <a href="product.html?id=dusk-overcoat" class="product-card js-reveal js-reveal-delay-2">
         <div class="product-img-container">
           <img src="assets/images/product-3.png" alt="Dusk Overcoat" loading="lazy" />
         </div>
@@ -570,7 +571,7 @@
       </a>
 
       <!-- Product 4 -->
-      <a href="#" class="product-card js-reveal js-reveal-delay-3">
+      <a href="product.html?id=silence-dress" class="product-card js-reveal js-reveal-delay-3">
         <div class="product-img-container">
           <img src="assets/images/collection-women.png" alt="Silence Dress" loading="lazy" />
         </div>
@@ -584,7 +585,7 @@
       </a>
 
       <!-- Product 5 -->
-      <a href="#" class="product-card js-reveal js-reveal-delay-4">
+      <a href="product.html?id=archive-set" class="product-card js-reveal js-reveal-delay-4">
         <div class="product-img-container">
           <img src="assets/images/collection-accessories.png" alt="Archive Set" loading="lazy" />
         </div>
@@ -598,7 +599,7 @@
       </a>
 
       <!-- Product 6 -->
-      <a href="#" class="product-card js-reveal js-reveal-delay-5">
+      <a href="product.html?id=white-edition" class="product-card js-reveal js-reveal-delay-5">
         <div class="product-img-container">
           <img src="assets/images/lookbook-1aa.png" alt="White Edition" loading="lazy" />
         </div>
@@ -612,7 +613,7 @@
       </a>
 
       <!-- Product 7 -->
-      <a href="#" class="product-card js-reveal">
+      <a href="product.html?id=noir-trench" class="product-card js-reveal">
         <div class="product-img-container">
           <img src="assets/images/Noir Trench.png" alt="Noir Trench" loading="lazy" />
         </div>
@@ -626,7 +627,7 @@
       </a>
 
       <!-- Product 8 -->
-      <a href="#" class="product-card js-reveal js-reveal-delay-1">
+      <a href="product.html?id=silk-bandana" class="product-card js-reveal js-reveal-delay-1">
         <div class="product-img-container">
           <img src="assets/images/Skill Bandana.png" alt="Silk Bandana" loading="lazy" />
         </div>
@@ -640,7 +641,7 @@
       </a>
 
       <!-- Product 9 -->
-      <a href="#" class="product-card js-reveal js-reveal-delay-2">
+      <a href="product.html?id=canvas-tote" class="product-card js-reveal js-reveal-delay-2">
         <div class="product-img-container">
           <img src="assets/images/Canvas Tote.png" alt="Canvas Tote" loading="lazy" />
         </div>
@@ -654,7 +655,7 @@
       </a>
 
       <!-- Product 10 -->
-      <a href="#" class="product-card js-reveal js-reveal-delay-3">
+      <a href="product.html?id=wool-scarf" class="product-card js-reveal js-reveal-delay-3">
         <div class="product-img-container">
           <img src="assets/images/Woll Scarf.png" alt="Wool Scarf" loading="lazy" />
         </div>
@@ -668,7 +669,7 @@
       </a>
 
       <!-- Product 11 -->
-      <a href="#" class="product-card js-reveal js-reveal-delay-4">
+      <a href="product.html?id=leather-belt" class="product-card js-reveal js-reveal-delay-4">
         <div class="product-img-container">
           <img src="assets/images/Leather Belt.png" alt="Leather Belt" loading="lazy" />
         </div>
@@ -682,7 +683,7 @@
       </a>
 
       <!-- Product 12 -->
-      <a href="#" class="product-card js-reveal js-reveal-delay-5">
+      <a href="product.html?id=linen-shirt" class="product-card js-reveal js-reveal-delay-5">
         <div class="product-img-container">
           <img src="assets/images/Linen Shirt.png" alt="Linen Shirt" loading="lazy" />
         </div>
@@ -747,13 +748,45 @@
       <span class="cart-header-title">My Cart</span>
       <button class="cart-close-btn" id="cartCloseBtn">Close</button>
     </div>
-    <div class="cart-content">
+    
+    <!-- Cart Items Scroll Area -->
+    <div class="cart-items-container" id="cartItemsContainer">
+      <!-- Populated dynamically -->
+    </div>
+    
+    <!-- Cart Footer Panel -->
+    <div class="cart-footer" id="cartFooter">
+      <div class="cart-footer-row">
+        <span class="cart-footer-label">Subtotal</span>
+        <span class="cart-footer-value" id="cartSubtotalValue">₹0</span>
+      </div>
+      <div class="cart-footer-row">
+        <span class="cart-footer-label">Shipping</span>
+        <span class="cart-footer-value shipping-calculated">Calculated at checkout</span>
+      </div>
+      <div class="cart-footer-divider"></div>
+      <button class="cart-checkout-btn" id="cartCheckoutBtn">Checkout</button>
+    </div>
+
+    <!-- Empty State -->
+    <div class="cart-empty-state" id="cartEmptyState">
       <h3 class="cart-empty-title">Your Cart is Empty</h3>
       <p class="cart-empty-subtitle">Come on, treat yourself. You deserve it.</p>
       <a href="shop.html" class="cart-shop-now-btn" id="cartShopNowBtn">[ Shop Now ]</a>
     </div>
   </div>
   <div id="cartBackdrop" class="cart-backdrop"></div>
+
+  <!-- Checkout Demo Modal Overlay -->
+  <div id="checkoutModal" class="checkout-modal-overlay">
+    <div class="checkout-modal">
+      <button class="checkout-modal-close-btn" id="checkoutModalCloseBtn" aria-label="Close modal">&times;</button>
+      <h3 class="checkout-modal-heading">Thank You for Exploring</h3>
+      <p class="checkout-modal-text">This is a demonstration website created for portfolio purposes. Kxm. is an imaginary brand, and purchases cannot be completed.</p>
+      <p class="checkout-modal-text">If you're interested in a website like this for your brand, let's talk.</p>
+      <a href="mailto:divyarajc2@gmail.com" class="checkout-modal-cta-btn">Get in Touch</a>
+    </div>
+  </div>
 
   <script>
     // REVEAL ON SCROLL
@@ -768,45 +801,8 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
     revealEls.forEach(el => io.observe(el));
 
-    // ── CART DRAWER TOGGLE ──
-    const body = document.body;
-    const cartDrawer = document.getElementById('cartDrawer');
-    const cartBackdrop = document.getElementById('cartBackdrop');
-    const cartCloseBtn = document.getElementById('cartCloseBtn');
-    const cartShopNowBtn = document.getElementById('cartShopNowBtn');
-    const cartOpenBtns = document.querySelectorAll('.js-cart-open');
-
-    function openCart() {
-      body.classList.add('cart-open');
-    }
-
-    function closeCart() {
-      body.classList.remove('cart-open');
-    }
-
-    cartOpenBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        openCart();
-      });
-    });
-
-    if (cartCloseBtn) {
-      cartCloseBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        closeCart();
-      });
-    }
-
-    if (cartShopNowBtn) {
-      cartShopNowBtn.addEventListener('click', () => {
-        closeCart();
-      });
-    }
-
-    cartBackdrop.addEventListener('click', closeCart);
   </script>
+  <script src="assets/js/cart.js"></script>
 
 </body>
 </html>
