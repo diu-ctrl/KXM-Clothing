@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KXM — All Products</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <meta name="description" content="Explore the KXM catalog of refined garments sourced from heritage mills in Italy and Japan." />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kxm.com/shop.html" />
+  <meta property="og:title" content="KXM — All Products" />
+  <meta property="og:description" content="Explore the KXM catalog of refined garments sourced from heritage mills in Italy and Japan." />
+  <meta property="og:image" content="assets/images/Hero%20Image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://kxm.com/shop.html" />
+  <meta name="twitter:title" content="KXM — All Products" />
+  <meta name="twitter:description" content="Explore the KXM catalog of refined garments sourced from heritage mills in Italy and Japan." />
+  <meta name="twitter:image" content="assets/images/Hero%20Image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <style>
+    /* FONT DECLARATIONS */
+    @font-face {
+      font-family: 'Ppneuemontreal';
+      src: url('assets/fonts/PPNeueMontreal-Thin.otf') format('opentype');
+      font-weight: 100;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Ppneuemontreal';
+      src: url('assets/fonts/PPNeueMontreal-Book.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Ppneuemontreal';
+      src: url('assets/fonts/PPNeueMontreal-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Ppneuemontreal';
+      src: url('assets/fonts/PPNeueMontreal-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Ppeditorialnew';
+      src: url('assets/fonts/PPEditorialNew-UltraLight.otf') format('opentype');
+      font-weight: 200;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Ppeditorialnew';
+      src: url('assets/fonts/PPEditorialNew-UltraLightItalic.otf') format('opentype');
+      font-weight: 200;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Ppeditorialnew';
+      src: url('assets/fonts/PPEditorialNew-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Ppeditorialnew';
+      src: url('assets/fonts/PPEditorialNew-Italic.otf') format('opentype');
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Ppeditorialnew';
+      src: url('assets/fonts/PPEditorialNew-UltraBold.otf') format('opentype');
+      font-weight: 800;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* DESIGN TOKENS */
+    :root {
+      --black:          #020202;
+      --white:          #ffffff;
+      --light-grey:     #f4f4f4;
+      --light-faded:    #818181;
+      --dark-faded-1:   rgba(2,2,2,0.1);
+      
+      --font-primary:   Arial, sans-serif;
+      --font-display:   'Ppeditorialnew', 'Instrument Serif', Georgia, serif;
+      --margin:         clamp(1rem, 0.929rem + 0.357vw, 1.25rem);
+    }
+
+    /* RESET */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-primary);
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1;
+      color: var(--black);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+    button { background: none; border: none; cursor: pointer; font: inherit; padding: 0; }
+    ul { list-style: none; }
+
+    /* NAV styling (fixed light mode) */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem var(--margin);
+      color: var(--black);
+      background: var(--white);
+      border-bottom: 1px solid rgba(2,2,2,0.06);
+    }
+    
+    .nav-brand {
+      font-family: var(--font-display);
+      font-size: 3.2rem;
+      font-weight: 400;
+      text-transform: lowercase;
+      color: var(--black);
+      line-height: 1;
+    }
+
+    .nav-menu-toggle {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 2.2rem;
+      height: 8px;
+      padding: 0;
+      color: var(--black);
+      transition: opacity 0.3s;
+    }
+    .nav-menu-toggle:hover {
+      opacity: 0.7;
+    }
+    .toggle-line {
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .nav-right a {
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--black);
+      transition: opacity 0.2s;
+    }
+    .nav-right a:hover {
+      opacity: 0.7;
+    }
+
+    /* TITLE BAR */
+    .shop-title-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem var(--margin);
+      border-bottom: 1px solid rgba(2,2,2,0.07);
+      margin-top: 5rem; /* space for fixed nav */
+      width: 100%;
+    }
+    .title-left, .title-center, .title-right {
+      font-family: var(--font-primary);
+      font-size: 0.58rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .title-left {
+      color: var(--black);
+    }
+    .title-center, .title-right {
+      color: var(--light-faded);
+    }
+
+    /* PRODUCT GRID */
+    .shop-grid-container {
+      padding: 2px var(--margin) 5rem;
+      background: var(--white);
+    }
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: rgba(2,2,2,0.07); /* grid lines border trick */
+    }
+
+    .product-card {
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .product-img-container {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: var(--light-grey);
+      overflow: hidden;
+      position: relative;
+    }
+    .product-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 1rem 0.75rem 1.25rem;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      position: relative;
+    }
+    .product-info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .product-name {
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--black);
+    }
+    .product-price {
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--light-faded);
+    }
+    
+    .product-hover-action {
+      font-family: var(--font-primary);
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--black);
+      border-bottom: 1px solid var(--black);
+      align-self: flex-start;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      margin-top: 0.25rem;
+    }
+    .product-card:hover .product-hover-action {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* REVEAL ON SCROLL */
+    .js-reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .js-reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+    .js-reveal-delay-1 { transition-delay: 0.1s; }
+    .js-reveal-delay-2 { transition-delay: 0.2s; }
+    .js-reveal-delay-3 { transition-delay: 0.3s; }
+    .js-reveal-delay-4 { transition-delay: 0.4s; }
+    .js-reveal-delay-5 { transition-delay: 0.5s; }
+    .js-reveal-delay-6 { transition-delay: 0.6s; }
+
+    /* FOOTER */
+    #footer {
+      background: var(--light-grey);
+      color: var(--black);
+      padding: 5rem var(--margin) 2.5rem;
+      border-top: 1px solid rgba(2,2,2,0.06);
+    }
+    .footer-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+    }
+    .footer-col-label {
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 1.25rem;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .footer-links a {
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--light-faded);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: var(--black);
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-primary);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+    .footer-copy {
+      color: var(--black);
+    }
+    .footer-designer {
+      color: var(--light-faded);
+      font-weight: 500;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .nav-brand { font-size: 2.2rem; }
+      .shop-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-nav-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    @media (max-width: 600px) {
+      .shop-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ═══════════════════════════════════════
+       CART DRAWER
+       (Slides in from the right)
+    ═══════════════════════════════════════ */
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 420px;
+      height: 100%;
+      background: var(--white);
+      z-index: 300; /* stays on top of nav (200) */
+      transform: translateX(100%);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: -10px 0 40px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      padding: var(--margin);
+      border-left: 1px solid rgba(2,2,2,0.06);
+    }
+    
+    body.cart-open .cart-drawer {
+      transform: translateX(0);
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(2,2,2,0.06);
+    }
+    
+    .cart-header-title {
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--black);
+    }
+    
+    .cart-close-btn {
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--black);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      transition: opacity 0.2s;
+    }
+    .cart-close-btn:hover {
+      opacity: 0.6;
+    }
+
+    .cart-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    .cart-empty-title {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.01em;
+    }
+
+    .cart-empty-subtitle {
+      font-family: var(--font-primary);
+      font-size: 0.68rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: var(--light-faded);
+      letter-spacing: 0.08em;
+      line-height: 1.5;
+      margin-bottom: 2.5rem;
+      max-width: 18rem;
+    }
+
+    .cart-shop-now-btn {
+      font-family: var(--font-primary);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--black);
+      letter-spacing: 0.08em;
+      transition: opacity 0.2s;
+      border-bottom: 1px solid var(--black);
+      padding-bottom: 2px;
+    }
+    .cart-shop-now-btn:hover {
+      opacity: 0.6;
+    }
+
+    /* Backdrop for the cart drawer */
+    .cart-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(2,2,2,0.25);
+      backdrop-filter: blur(1px);
+      z-index: 290; /* just below cart drawer */
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    body.cart-open .cart-backdrop {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-brand" id="navBrand" aria-label="KXM Home">kxm.</a>
+
+    <a href="index.html" class="nav-menu-toggle" id="menuToggle" aria-label="Return to Home">
+      <span class="toggle-line" style="margin-bottom: 6px;"></span>
+      <span class="toggle-line"></span>
+    </a>
+
+    <div class="nav-right">
+      <a href="index.html" class="nav-link-close-page">Close</a>
+    </div>
+  </nav>
+
+  <!-- TITLE BAR -->
+  <div class="shop-title-bar">
+    <div class="title-left">ALL PRODUCTS</div>
+    <div class="title-center">COLLECTION 01 / KXM</div>
+    <div class="title-right">(12)</div>
+  </div>
+
+  <!-- PRODUCT GRID -->
+  <main class="shop-grid-container">
+    <div class="shop-grid">
+
+      <!-- Product 1 -->
+      <a href="#" class="product-card js-reveal">
+        <div class="product-img-container">
+          <img src="assets/images/product-1.png" alt="Obsidian Blazer" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-info-row">
+            <span class="product-name">Obsidian Blazer</span>
+            <span class="product-price">₹30,435</span>
+          </div>
+          <div class="product-hover-action">View Product</div>
+        </div>
+      </a>
+
+      <!-- Product 2 -->
+      <a href="#" class="product-card js-reveal js-reveal-delay-1">
+        <div class="product-img-container">
+          <img src="assets/images/product-2.png" alt="Ivory Wide-Leg" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-info-row">
+            <span class="product-name">Ivory Wide-Leg</span>
+            <span class="product-price">₹18,546</span>
+          </div>
+          <div class="product-hover-action">View Product</div>
+        </div>
+      </a>
+
+      <!-- Product 3 -->
+      <a href="#" class="product-card js-reveal js-reveal-delay-2">
+        <div class="product-img-container">
+          <img src="assets/images/product-3.png" alt="Dusk Overcoat" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-info-row">
+            <span class="product-name">Dusk Overcoat</span>
+            <span class="product-price">₹45,652</span>
+          </div>
+          <div class="product-hover-action">View Product</div>
+        </div>
+      </a>
+
+      <!-- Product 4 -->
+      <a href="#" class="product-card js-reveal js-reveal-delay-3">
+        <div class="product-img-container">
+          <img src="assets/images/collection-women.png" alt="Silence Dress" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-info-row">
+            <span class="product-name">Silence Dress</span>
+            <span class="product-price">₹25,204</span>
+          </div>
+          <div class="product-hover-action">View Product</div>
+        </div>
+      </a>
+
+      <!-- Product 5 -->
+      <a href="#" class="product-card js-reveal js-reveal-delay-4">
+        <div class="product-img-container">
+          <img src="assets/images/collection-accessories.png" alt="Archive Set" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-info-row">
+            <span class="product-name">Archive Set</span>
+            <span class="product-price">From ₹8,084</span>
+          </div>
+          <div class="product-hover-action">View Product</div>
+        </div>
+      </a>
+
+      <!-- Product 6 -->
+      <a href="#" class="product-card js-reveal js-reveal-delay-5">
+        <div class="product-img-container">
+          <img src="assets/images/lookbook-1aa.png" alt="White Edition" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-info-row">
+            <span class="product-name">White Edition</span>
+            <span class="product-price">₹32,337</span>
+          </div>
+          <div class="product-hover-action">View Product</div>
+        </div>
+      </a>
+
+      <!-- Product 7 -->
+      <a href="#" class="product-card js-reveal">
+        <div class="product-img-container">
+          <img src="assets/images/Noir Trench.png" alt="Noir Trench" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-info-row">
+            <span class="product-name">Noir Trench</span>
+            <span class="product-price">₹39,946</span>
+          </div>
+          <div class="product-hover-action">View Product</div>
+        </div>
+      </a>
+
+      <!-- Product 8 -->
+      <a href="#" class="product-card js-reveal js-reveal-delay-1">
+        <div class="product-img-container">
+          <img src="assets/images/Skill Bandana.png" alt="Silk Bandana" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-info-row">
+            <span class="product-name">Silk Bandana</span>
+            <span class="product-price">₹6,182</span>
+          </div>
+          <div class="product-hover-action">View Product</div>
+        </div>
+      </a>
+
+      <!-- Product 9 -->
+      <a href="#" class="product-card js-reveal js-reveal-delay-2">
+        <div class="product-img-container">
+          <img src="assets/images/Canvas Tote.png" alt="Canvas Tote" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-info-row">
+            <span class="product-name">Canvas Tote</span>
+            <span class="product-price">₹11,413</span>
+          </div>
+          <div class="product-hover-action">View Product</div>
+        </div>
+      </a>
+
+      <!-- Product 10 -->
+      <a href="#" class="product-card js-reveal js-reveal-delay-3">
+        <div class="product-img-container">
+          <img src="assets/images/Woll Scarf.png" alt="Wool Scarf" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-info-row">
+            <span class="product-name">Wool Scarf</span>
+            <span class="product-price">₹9,035</span>
+          </div>
+          <div class="product-hover-action">View Product</div>
+        </div>
+      </a>
+
+      <!-- Product 11 -->
+      <a href="#" class="product-card js-reveal js-reveal-delay-4">
+        <div class="product-img-container">
+          <img src="assets/images/Leather Belt.png" alt="Leather Belt" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-info-row">
+            <span class="product-name">Leather Belt</span>
+            <span class="product-price">₹13,791</span>
+          </div>
+          <div class="product-hover-action">View Product</div>
+        </div>
+      </a>
+
+      <!-- Product 12 -->
+      <a href="#" class="product-card js-reveal js-reveal-delay-5">
+        <div class="product-img-container">
+          <img src="assets/images/Linen Shirt.png" alt="Linen Shirt" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-info-row">
+            <span class="product-name">Linen Shirt</span>
+            <span class="product-price">₹17,120</span>
+          </div>
+          <div class="product-hover-action">View Product</div>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-nav-grid">
+      <div>
+        <p class="footer-col-label">Site Index</p>
+        <ul class="footer-links">
+          <li><a href="shop.html">Shop Now</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#brand-intro">About Us</a></li>
+          <li><a href="#" class="js-cart-open">Cart</a></li>
+          <li><a href="#footer">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-label">Social</p>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/divyaraj.creates" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-label">Get In Touch</p>
+        <ul class="footer-links">
+          <li><a href="mailto:divyarajc2@gmail.com">divyarajc2@gmail.com</a></li>
+          <li><a href="tel:+919979787087">+91 99797 87087</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-label">Legal</p>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Refunds</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">All Rights Reserved _ KXM©2026</p>
+      <p class="footer-designer">Website by <a href="https://www.instagram.com/divyaraj.creates" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: inherit;">Divyaraj Creates</a></p>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div id="cartDrawer" class="cart-drawer">
+    <div class="cart-header">
+      <span class="cart-header-title">My Cart</span>
+      <button class="cart-close-btn" id="cartCloseBtn">Close</button>
+    </div>
+    <div class="cart-content">
+      <h3 class="cart-empty-title">Your Cart is Empty</h3>
+      <p class="cart-empty-subtitle">Come on, treat yourself. You deserve it.</p>
+      <a href="shop.html" class="cart-shop-now-btn" id="cartShopNowBtn">[ Shop Now ]</a>
+    </div>
+  </div>
+  <div id="cartBackdrop" class="cart-backdrop"></div>
+
+  <script>
+    // REVEAL ON SCROLL
+    const revealEls = document.querySelectorAll('.js-reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    revealEls.forEach(el => io.observe(el));
+
+    // ── CART DRAWER TOGGLE ──
+    const body = document.body;
+    const cartDrawer = document.getElementById('cartDrawer');
+    const cartBackdrop = document.getElementById('cartBackdrop');
+    const cartCloseBtn = document.getElementById('cartCloseBtn');
+    const cartShopNowBtn = document.getElementById('cartShopNowBtn');
+    const cartOpenBtns = document.querySelectorAll('.js-cart-open');
+
+    function openCart() {
+      body.classList.add('cart-open');
+    }
+
+    function closeCart() {
+      body.classList.remove('cart-open');
+    }
+
+    cartOpenBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        openCart();
+      });
+    });
+
+    if (cartCloseBtn) {
+      cartCloseBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeCart();
+      });
+    }
+
+    if (cartShopNowBtn) {
+      cartShopNowBtn.addEventListener('click', () => {
+        closeCart();
+      });
+    }
+
+    cartBackdrop.addEventListener('click', closeCart);
+  </script>
+
+</body>
+</html>

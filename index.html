@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KXM — More Than Just Fashion</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <meta name="description" content="Informed by culture, within the context of today's world. KXM produces refined clothing that makes space for both intention and freedom." />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kxm.com/" />
+  <meta property="og:title" content="KXM — More Than Just Fashion" />
+  <meta property="og:description" content="Informed by culture, within the context of today's world. KXM produces refined clothing that makes space for both intention and freedom." />
+  <meta property="og:image" content="assets/images/Hero%20Image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://kxm.com/" />
+  <meta name="twitter:title" content="KXM — More Than Just Fashion" />
+  <meta name="twitter:description" content="Informed by culture, within the context of today's world. KXM produces refined clothing that makes space for both intention and freedom." />
+  <meta name="twitter:image" content="assets/images/Hero%20Image.png" />
+
+  <!-- Instrument Serif — confirmed used by Odd Ritual via Google WebFont loader -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─────────────────────────────────────────
+       FONT DECLARATIONS
+       Drop PP Neue Montreal & PP Editorial New
+       files into assets/fonts/ when available.
+    ───────────────────────────────────────── */
+
+    /* PP Neue Montreal — primary sans-serif UI font */
+    @font-face {
+      font-family: 'Ppneuemontreal';
+      src: url('assets/fonts/PPNeueMontreal-Thin.otf') format('opentype');
+      font-weight: 100;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Ppneuemontreal';
+      src: url('assets/fonts/PPNeueMontreal-Book.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Ppneuemontreal';
+      src: url('assets/fonts/PPNeueMontreal-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Ppneuemontreal';
+      src: url('assets/fonts/PPNeueMontreal-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* PP Editorial New — display serif heading font */
+    @font-face {
+      font-family: 'Ppeditorialnew';
+      src: url('assets/fonts/PPEditorialNew-UltraLight.otf') format('opentype');
+      font-weight: 200;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Ppeditorialnew';
+      src: url('assets/fonts/PPEditorialNew-UltraLightItalic.otf') format('opentype');
+      font-weight: 200;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Ppeditorialnew';
+      src: url('assets/fonts/PPEditorialNew-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Ppeditorialnew';
+      src: url('assets/fonts/PPEditorialNew-Italic.otf') format('opentype');
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Ppeditorialnew';
+      src: url('assets/fonts/PPEditorialNew-UltraBold.otf') format('opentype');
+      font-weight: 800;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Ppeditorialnew';
+      src: url('assets/fonts/PPEditorialNew-UltraBoldItalic.otf') format('opentype');
+      font-weight: 800;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    /* ─────────────────────────────────────────
+       DESIGN TOKENS — exact from oddritualgolf
+    ───────────────────────────────────────── */
+    :root {
+      --black:          #020202;
+      --white:          #ffffff;
+      --light-grey:     #f4f4f4;
+      --light-faded:    #818181;
+      --dark-faded-1:   rgba(2,2,2,0.1);
+      --dark-faded-4:   rgba(2,2,2,0.4);
+      --dark-faded-8:   rgba(2,2,2,0.8);
+      --faded-text:     #cccccc;
+
+      --font-primary:   Arial, sans-serif;
+      --font-display:   'Ppeditorialnew', 'Instrument Serif', Georgia, serif;
+      --font-italic:    'Instrument Serif', Georgia, serif;
+
+      --margin:         clamp(1rem, 0.929rem + 0.357vw, 1.25rem);
+      --gutter:         0.65rem;
+    }
+
+    /* ─────────────────────────────────────────
+       RESET
+    ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-primary);
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1;
+      color: var(--black);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+    button { background: none; border: none; cursor: pointer; font: inherit; padding: 0; }
+    ul { list-style: none; }
+    svg { max-width: 100%; }
+
+    /* ═══════════════════════════════════════
+       NAV — exact match to Odd Ritual layout
+    ═══════════════════════════════════════ */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem var(--margin);
+      color: var(--white);
+      transition: color 0.3s ease;
+    }
+    #nav.nav-light { color: var(--black); }
+
+    /* ── Brand name: plain text, lowercase, with period — like "odd ritual." ── */
+    .nav-brand {
+      font-family: var(--font-display);
+      font-size: 3.2rem;
+      font-weight: 400;
+      letter-spacing: 0em;
+      text-transform: lowercase;
+      color: currentColor;
+      line-height: 1;
+    }
+
+    /* ── Center: two-line menu toggle, absolute centered ── */
+    .nav-menu-toggle {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 2.2rem;
+      height: 8px;
+      padding: 0;
+      color: currentColor;
+      transition: opacity 0.3s, transform 0.3s;
+      z-index: 210;
+    }
+    
+    .nav-menu-toggle:hover {
+      opacity: 0.7;
+    }
+
+    .toggle-line {
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: currentColor;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    body.menu-open .nav-menu-toggle .toggle-line:nth-child(1) {
+      transform: translateY(3.5px) rotate(45deg);
+    }
+    body.menu-open .nav-menu-toggle .toggle-line:nth-child(2) {
+      transform: translateY(-3.5px) rotate(-45deg);
+    }
+
+    /* Hide standard nav links when menu is open and show close text */
+    body.menu-open .nav-right .nav-link-shop,
+    body.menu-open .nav-right .nav-link-cart {
+      display: none !important;
+    }
+    
+    body.menu-open .nav-right .nav-link-close {
+      display: inline-block !important;
+    }
+    
+    body.menu-open #nav {
+      color: var(--black) !important;
+    }
+
+    .nav-link-close {
+      display: none;
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: currentColor;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      transition: opacity 0.2s;
+    }
+    .nav-link-close:hover {
+      opacity: 0.7;
+    }
+
+    /* ═══════════════════════════════════════
+       MENU OVERLAY
+       (Slides down from the top covering ~55vh)
+    ═══════════════════════════════════════ */
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 55vh;
+      min-height: 480px;
+      background: var(--white);
+      z-index: 190; /* just below #nav (200) */
+      transform: translateY(-100%);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: var(--margin) var(--margin) 2rem var(--margin);
+      border-bottom: 1px solid rgba(2,2,2,0.06);
+    }
+    
+    body.menu-open .menu-overlay {
+      transform: translateY(0);
+    }
+
+    .menu-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+      padding-top: 5rem; /* space for navbar */
+    }
+
+    .menu-main-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+    .menu-link {
+      font-family: var(--font-primary);
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: rgba(2,2,2,0.22);
+      transition: color 0.3s ease, text-decoration-color 0.3s ease;
+      letter-spacing: -0.01em;
+      text-decoration: underline;
+      text-underline-offset: 0.22em;
+      text-decoration-color: transparent;
+    }
+
+    .menu-link:hover,
+    .menu-link.active {
+      color: rgba(2, 2, 2, 0.85);
+      text-decoration-color: rgba(2, 2, 2, 0.35);
+    }
+
+    .menu-bottom-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: flex-end;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(2,2,2,0.05);
+    }
+
+    .menu-bottom-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .menu-bottom-right {
+      text-align: right;
+    }
+
+    .menu-sub-link {
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--black);
+      letter-spacing: 0.05em;
+      transition: opacity 0.2s;
+    }
+    .menu-sub-link:hover {
+      opacity: 0.6;
+    }
+
+    /* Backdrop for the remaining screen height */
+    .menu-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(2,2,2,0.25);
+      backdrop-filter: blur(1px);
+      z-index: 180; /* just below menu-overlay */
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    body.menu-open .menu-backdrop {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ═══════════════════════════════════════
+       CART DRAWER
+       (Slides in from the right)
+    ═══════════════════════════════════════ */
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 420px;
+      height: 100%;
+      background: var(--white);
+      z-index: 300; /* stays on top of nav (200) and menu (190) */
+      transform: translateX(100%);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: -10px 0 40px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      padding: var(--margin);
+      border-left: 1px solid rgba(2,2,2,0.06);
+    }
+    
+    body.cart-open .cart-drawer {
+      transform: translateX(0);
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(2,2,2,0.06);
+    }
+    
+    .cart-header-title {
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--black);
+    }
+    
+    .cart-close-btn {
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--black);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      transition: opacity 0.2s;
+    }
+    .cart-close-btn:hover {
+      opacity: 0.6;
+    }
+
+    .cart-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    .cart-empty-title {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.01em;
+    }
+
+    .cart-empty-subtitle {
+      font-family: var(--font-primary);
+      font-size: 0.68rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: var(--light-faded);
+      letter-spacing: 0.08em;
+      line-height: 1.5;
+      margin-bottom: 2.5rem;
+      max-width: 18rem;
+    }
+
+    .cart-shop-now-btn {
+      font-family: var(--font-primary);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--black);
+      letter-spacing: 0.08em;
+      transition: opacity 0.2s;
+      border-bottom: 1px solid var(--black);
+      padding-bottom: 2px;
+    }
+    .cart-shop-now-btn:hover {
+      opacity: 0.6;
+    }
+
+    /* Backdrop for the cart drawer */
+    .cart-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(2,2,2,0.25);
+      backdrop-filter: blur(1px);
+      z-index: 290; /* just below cart drawer */
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    body.cart-open .cart-backdrop {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ── Right: SHOP NOW + CART uppercase links ── */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+    .nav-right a {
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      opacity: 1;
+      transition: opacity 0.2s;
+    }
+    #nav.nav-light .nav-right a { color: var(--black); }
+    .nav-right a:hover { opacity: 0.7; }
+
+    /* ═══════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════ */
+    #hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 640px;
+      overflow: hidden;
+      background: var(--black);
+    }
+
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .hero-img img {
+      height: 100%;
+      object-position: center top;
+    }
+    .hero-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(2,2,2,0.18) 0%,
+        rgba(2,2,2,0.05) 40%,
+        rgba(2,2,2,0.35) 100%
+      );
+    }
+
+    /* ── Hero content layout — bottom-anchored like Odd Ritual ── */
+    .hero-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: var(--margin);
+      padding-bottom: 2rem;
+    }
+
+    /* Slide numbers row — 01, 02, 03 across the middle */
+    .hero-slides {
+      position: absolute;
+      left: 0; right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      padding: 0 var(--margin);
+      pointer-events: none;
+    }
+    .hero-slide-num {
+      font-family: var(--font-primary);
+      font-size: 0.68rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      font-style: italic;
+    }
+    .hero-slide-num.active {
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* Bottom row — CTA left, Scroll right */
+    .hero-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    /* Large SHOP NOW text — exact same scale as Odd Ritual */
+    .hero-cta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+    /* "SHOP NOW" — same size as the lines below */
+    .hero-cta-main {
+      font-family: var(--font-primary);
+      font-size: clamp(1.8rem, 3.3vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.0;
+    }
+    /* "EXPLORE OUR FIRST" + "COLLECTION" — same size as SHOP NOW */
+    .hero-cta-sub {
+      font-family: var(--font-primary);
+      font-size: clamp(1.8rem, 3.3vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.1;
+    }
+
+    /* Scroll indicator bottom-right */
+    .hero-scroll {
+      font-family: var(--font-primary);
+      font-size: 0.68rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.06em;
+      writing-mode: horizontal-tb;
+      padding-bottom: 0.2rem;
+    }
+
+    /* ═══════════════════════════════════════
+       BRAND INTRO — between hero and products
+       (exact clone of Odd Ritual's logo + quote layout)
+    ═══════════════════════════════════════ */
+    #brand-intro {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 28rem;
+      border-bottom: 1px solid rgba(2,2,2,0.07);
+    }
+
+    .brand-intro-left {
+      padding: 2.5rem var(--margin) 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    /* KXM logo mark — large, top-left, black */
+    .brand-intro-logo {
+      width: auto;
+      height: clamp(6rem, 10vw, 9rem);
+      max-width: 16rem;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-intro-right {
+      padding: 2.5rem var(--margin) 2.5rem 2rem;
+      padding-right: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    /* Large bold intro paragraph — matching Odd Ritual's body intro */
+    .brand-intro-text {
+      font-family: var(--font-primary);
+      font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--black);
+      max-width: none;
+      width: 100%;
+    }
+
+    /* ( FEATURED PRODUCTS ) bottom-center label */
+    .brand-intro-footer {
+      grid-column: 1 / -1;
+      padding: 1.5rem var(--margin);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-top: 1px solid rgba(2,2,2,0.07);
+    }
+    .brand-intro-footer-label {
+      font-family: var(--font-primary);
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(2,2,2,0.35);
+    }
+
+    /* ═══════════════════════════════════════
+       PRODUCTS STRIP
+    ═══════════════════════════════════════ */
+    #products {
+      background: var(--white);
+      padding: 2.5rem var(--margin) 3.5rem;
+    }
+
+    .products-top-bar {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 1.75rem;
+    }
+    .products-section-label {
+      font-family: var(--font-primary);
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+    .products-view-all {
+      font-family: var(--font-primary);
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--light-faded);
+      border-bottom: 1px solid var(--light-faded);
+      padding-bottom: 0.05rem;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .products-view-all:hover { color: var(--black); border-color: var(--black); }
+
+    /* ── Marquee wrapper — clips overflow, full width ── */
+    .products-marquee {
+      overflow: hidden;
+      width: 100%;
+      padding-bottom: 2.5rem;
+    }
+
+    /* ── The scrolling track — duplicated items for seamless loop ── */
+    .products-track {
+      display: flex;
+      gap: 1rem;
+      width: max-content;
+      animation: productsMarquee 28s linear infinite;
+    }
+    .products-track:hover { animation-play-state: paused; }
+
+    @keyframes productsMarquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── Individual product card — larger size ── */
+    .product-card {
+      cursor: pointer;
+      flex: 0 0 300px;
+      width: 300px;
+      height: 400px;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-card-img {
+      width: 300px;
+      height: 400px;
+      overflow: hidden;
+      background: var(--light-grey);
+      position: relative;
+    }
+    .product-card-img img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .product-card-img img.hover-img {
+      opacity: 0;
+      z-index: 2;
+    }
+    .product-card-img img.default-img {
+      z-index: 1;
+    }
+    .product-card:hover .product-card-img img.default-img {
+      opacity: 0;
+      transform: scale(1.04);
+    }
+    .product-card:hover .product-card-img img.hover-img {
+      opacity: 1;
+      transform: scale(1.04);
+    }
+
+    /* ── Info panel — hidden below, slides up on hover ── */
+    .product-card-info {
+      position: absolute;
+      bottom: 12px; left: 12px; right: 12px;
+      background: var(--white);
+      padding: 1rem 1.1rem 1.1rem;
+      transform: translateY(calc(100% + 24px));
+      transition: transform 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border: 1px solid rgba(2,2,2,0.06);
+      box-shadow: 0 4px 12px rgba(2,2,2,0.04);
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .product-card:hover .product-card-info {
+      transform: translateY(0);
+    }
+
+    .product-card-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      text-align: left;
+    }
+
+    .product-card-name {
+      font-family: var(--font-primary);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: var(--black);
+      line-height: 1.3;
+    }
+    .product-card-price {
+      font-family: var(--font-primary);
+      font-size: 0.63rem;
+      font-weight: 400;
+      color: var(--light-faded);
+    }
+    .product-card-arrow {
+      font-family: var(--font-primary);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--black);
+      transition: transform 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .product-card:hover .product-card-arrow {
+      transform: translateX(4px);
+    }
+
+    /* ═══════════════════════════════════════
+       EDITORIAL GRID
+    ═══════════════════════════════════════ */
+    #editorial {
+      background: var(--white);
+      padding: 0.1rem 0;
+    }
+
+    .editorial-section-bar {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 1.5rem var(--margin) 1rem;
+    }
+    .editorial-section-label {
+      font-family: var(--font-primary);
+      font-size: 0.58rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 2px;
+      height: 68vh;
+    }
+    .ed-cell {
+      position: relative;
+      overflow: hidden;
+    }
+    .ed-cell--span { grid-row: span 2; }
+    .ed-cell img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .img-pos-top {
+      object-position: center top !important;
+    }
+    .ed-cell:hover img { transform: scale(1.04); }
+    .ed-cell-label {
+      position: absolute;
+      bottom: 0.9rem;
+      left: 1rem;
+      font-family: var(--font-primary);
+      font-size: 0.52rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+    .ed-cell-label.label-dark {
+      color: var(--black);
+    }
+
+    /* ═══════════════════════════════════════
+       BRAND STATEMENT
+    ═══════════════════════════════════════ */
+    #brand-statement {
+      background: var(--white);
+      padding: 5rem var(--margin);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .bs-label {
+      font-family: var(--font-primary);
+      font-size: 0.58rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--light-faded);
+      margin-bottom: 2rem;
+    }
+    .bs-quote {
+      font-family: var(--font-italic);
+      font-size: clamp(0.95rem, 1.8vw, 1.35rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--black);
+      max-width: 580px;
+      margin-bottom: 2.5rem;
+    }
+    .bs-divider {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .bs-line {
+      width: 1px;
+      height: 3rem;
+      background: rgba(2,2,2,0.12);
+    }
+    /* KXM logo mark centered in brand statement */
+    .bs-logo {
+      height: 4.2rem;
+      width: auto;
+      max-width: 15rem;
+      object-fit: contain;
+      opacity: 0.85;
+    }
+    .bs-social {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-primary);
+      font-size: 0.58rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--light-faded);
+      transition: color 0.2s;
+      margin-top: 0.25rem;
+    }
+    .bs-social:hover { color: var(--black); }
+    .bs-social svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
+
+    /* ═══════════════════════════════════════
+       LIFESTYLE FULL-BLEED
+    ═══════════════════════════════════════ */
+    #lifestyle {
+      position: relative;
+      width: 100%;
+      height: 88vh;
+      min-height: 540px;
+      overflow: hidden;
+    }
+    #lifestyle img {
+      width: 100%;
+      height: 100%;
+      object-position: center 20%;
+    }
+    .lifestyle-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 50%,
+        rgba(2,2,2,0.45) 100%
+      );
+    }
+    .lifestyle-text {
+      position: absolute;
+      bottom: 2.5rem;
+      left: var(--margin);
+    }
+    .lifestyle-script {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+      font-weight: 200;
+      font-style: italic;
+      color: var(--white);
+      line-height: 0.92;
+      letter-spacing: -0.01em;
+    }
+
+    /* ═══════════════════════════════════════
+       MORE THAN JUST FASHION
+    ═══════════════════════════════════════ */
+    #statement {
+      background: var(--black);
+      padding: 2.75rem var(--margin) 3.5rem;
+      overflow: hidden;
+    }
+
+    .stmt-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.35rem;
+    }
+    .stmt-star {
+      font-size: 0.85rem;
+      line-height: 1;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.2em;
+    }
+    .stmt-sub {
+      font-family: var(--font-primary);
+      font-size: 0.52rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .stmt-headline {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-style: normal;
+      font-size: clamp(4.5rem, 12.5vw, 14rem);
+      line-height: 0.875;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+
+    /* ═══════════════════════════════════════
+       CONTENT / BRAND STORY
+    ═══════════════════════════════════════ */
+    #content {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .content-left {
+      padding: 0 var(--margin);
+      border-right: 1px solid var(--dark-faded-1);
+    }
+
+    .content-block {
+      display: grid;
+      grid-template-columns: 6rem 1fr;
+      gap: 1.25rem;
+      padding: 0;
+      height: 300px;
+      align-content: center;
+    }
+
+    .content-block-label {
+      font-family: var(--font-primary);
+      font-size: 0.58rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--light-faded);
+      padding-top: 0.2rem;
+      line-height: 1.4;
+    }
+
+    .content-block-body { display: flex; flex-direction: column; gap: 0.6rem; }
+
+    .content-block-title {
+      font-family: var(--font-display);
+      font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.25;
+      color: var(--black);
+    }
+    .content-block-text {
+      font-family: var(--font-primary);
+      font-size: 0.72rem;
+      font-weight: 400;
+      line-height: 1.7;
+      color: rgba(2,2,2,0.5);
+    }
+    .content-block-link {
+      display: inline-flex;
+      align-items: center;
+      align-self: flex-start;
+      font-family: var(--font-primary);
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-top: 0.15rem;
+      transition: opacity 0.2s;
+      cursor: pointer;
+    }
+    .content-block-link:hover {
+      opacity: 0.6;
+    }
+
+    .content-right {
+      display: grid;
+      grid-template-rows: 300px 300px 300px 300px;
+      gap: 2px;
+    }
+    .content-img {
+      overflow: hidden;
+    }
+    .content-img img {
+      height: 100%;
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .content-img:hover img { transform: scale(1.03); }
+
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
+    #footer {
+      background: var(--light-grey);
+      color: var(--black);
+      padding: 5rem var(--margin) 2.5rem;
+      border-top: 1px solid rgba(2,2,2,0.06);
+    }
+
+    .footer-main-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 5rem;
+    }
+
+    .footer-logo-img {
+      height: 9rem;
+      width: auto;
+      max-width: 20rem;
+      object-fit: contain;
+      display: block;
+    }
+
+    .footer-right-col {
+      display: flex;
+      flex-direction: row;
+      gap: 4rem;
+      align-items: flex-start;
+    }
+
+    .footer-slogan-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      max-width: 14rem;
+    }
+    .footer-slogan-title {
+      font-family: var(--font-primary);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      line-height: 1.2;
+    }
+    .footer-slogan-sub {
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--light-faded);
+      line-height: 1.2;
+    }
+
+    .footer-form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 16rem;
+      position: relative;
+    }
+    .form-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .form-group {
+      border-bottom: 1px solid rgba(2,2,2,0.18);
+      padding-bottom: 0.4rem;
+      transition: border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .form-group.has-error {
+      border-bottom-color: #ff3b30; /* visual error state - red line */
+    }
+    .footer-form input {
+      width: 100%;
+      border: none;
+      background: transparent;
+      font-family: var(--font-primary);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--black);
+      text-transform: uppercase;
+      outline: none;
+      transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .form-group.has-error input {
+      color: #ff3b30; /* visual error state - red text */
+    }
+    .footer-form input::placeholder {
+      color: rgba(2,2,2,0.35);
+      transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .form-group.has-error input::placeholder {
+      color: rgba(255, 59, 48, 0.5);
+    }
+    .form-submit {
+      font-family: var(--font-primary);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--black);
+      text-transform: uppercase;
+      text-align: left;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      padding: 0;
+      align-self: flex-start;
+      transition: opacity 0.2s;
+    }
+    .form-submit:hover {
+      opacity: 0.6;
+    }
+    .form-success-msg {
+      display: none;
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: rgba(2,2,2,0.85);
+      text-transform: uppercase;
+      opacity: 0;
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      line-height: 1.4;
+    }
+    .form-success-msg.show {
+      opacity: 1;
+    }
+
+    .footer-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      border-top: 1px solid rgba(2,2,2,0.12);
+      padding-top: 2.25rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-col-label {
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 1.25rem;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .footer-links a {
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--light-faded);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: var(--black);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-primary);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+    .footer-copy {
+      color: var(--black);
+    }
+    .footer-designer {
+      color: var(--light-faded);
+      font-weight: 500;
+    }
+
+    /* ═══════════════════════════════════════
+       REVEAL ANIMATIONS
+    ═══════════════════════════════════════ */
+    .js-reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .js-reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+    .js-reveal-delay-1 { transition-delay: 0.1s; }
+    .js-reveal-delay-2 { transition-delay: 0.2s; }
+    .js-reveal-delay-3 { transition-delay: 0.3s; }
+    .js-reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .nav-brand { font-size: 2.2rem; }
+      .hero-cta-main { font-size: clamp(1.3rem, 5vw, 1.8rem); }
+      .hero-cta-sub  { font-size: clamp(0.65rem, 2.5vw, 0.85rem); }
+      .products-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+      .editorial-grid { grid-template-columns: 1fr 1fr; height: auto; grid-template-rows: auto; }
+      .ed-cell--span { grid-row: span 1; }
+      .stmt-headline { font-size: clamp(3.5rem, 14vw, 8rem); }
+      #content { grid-template-columns: 1fr; }
+      .content-block { grid-template-columns: 1fr; gap: 0.5rem; height: auto; padding: 2rem 0; }
+      .content-right { grid-template-rows: auto; }
+      .footer-main-row { flex-direction: column; gap: 2.5rem; margin-bottom: 3.5rem; }
+      .footer-logo-img { height: 5rem; }
+      .footer-right-col { flex-direction: column; gap: 2rem; }
+      .footer-nav-grid { grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; padding-top: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════
+       NAV
+  ══════════════════════════════ -->
+  <nav id="nav" role="navigation" aria-label="Main navigation">
+    <!-- Brand name as plain text — exactly like "odd ritual." -->
+    <a href="#" class="nav-brand" id="navBrand" aria-label="KXM Home">kxm.</a>
+
+    <!-- Center two-line menu toggle -->
+    <button class="nav-menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
+    </button>
+
+    <!-- Right: SHOP NOW + CART -->
+    <div class="nav-right">
+      <a href="shop.html" class="nav-link-shop">Shop Now</a>
+      <a href="#" class="nav-link-cart js-cart-open">Cart</a>
+    </div>
+  </nav>
+
+  <!-- Menu Overlay (Slides down) -->
+  <div id="menuOverlay" class="menu-overlay">
+    <div class="menu-content">
+      <div class="menu-main-links">
+        <a href="shop.html" class="menu-link">Our Shop</a>
+        <a href="#" class="menu-link">Home</a>
+        <a href="#brand-intro" class="menu-link">About Us</a>
+        <a href="#footer" class="menu-link">Contact</a>
+      </div>
+      <div class="menu-bottom-row">
+        <div class="menu-bottom-left"></div>
+        <div class="menu-bottom-center">
+          <a href="#" class="menu-sub-link js-cart-open">My Cart</a>
+          <a href="#newsletterForm" class="menu-sub-link" id="joinFamLink">Join The Fam</a>
+        </div>
+        <div class="menu-bottom-right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="menuBackdrop" class="menu-backdrop"></div>
+
+  <!-- Cart Drawer -->
+  <div id="cartDrawer" class="cart-drawer">
+    <div class="cart-header">
+      <span class="cart-header-title">My Cart</span>
+      <button class="cart-close-btn" id="cartCloseBtn">Close</button>
+    </div>
+    <div class="cart-content">
+      <h3 class="cart-empty-title">Your Cart is Empty</h3>
+      <p class="cart-empty-subtitle">Come on, treat yourself. You deserve it.</p>
+      <a href="shop.html" class="cart-shop-now-btn" id="cartShopNowBtn">[ Shop Now ]</a>
+    </div>
+  </div>
+  <div id="cartBackdrop" class="cart-backdrop"></div>
+
+  <!-- ══════════════════════════════
+       HERO
+  ══════════════════════════════ -->
+  <section id="hero" aria-label="KXM Current Collection">
+    <div class="hero-img">
+      <img
+        src="assets/images/Hero%20Image.png"
+        alt="KXM — Purchase Current Collection"
+        loading="eager"
+      />
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-bottom">
+        <!-- Bottom-left: large SHOP NOW — exact as Odd Ritual -->
+        <a href="shop.html" class="hero-cta">
+          <span class="hero-cta-main">Shop Now</span>
+          <span class="hero-cta-sub">Explore Our First<br>Collection</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       BRAND INTRO
+       (logo mark + large quote + featured products label)
+  ══════════════════════════════ -->
+  <section id="brand-intro" aria-label="About KXM">
+
+    <!-- Left: KXM logo mark, large, top-left -->
+    <div class="brand-intro-left">
+      <img
+        class="brand-intro-logo"
+        src="assets/KXM black text trans bg logo.png"
+        alt="KXM"
+      />
+    </div>
+
+    <!-- Right: large bold brand statement -->
+    <div class="brand-intro-right">
+      <p class="brand-intro-text">
+        Born from a shared love of craft, rooted in a
+        vision of authenticity and creativity expressed
+        through what we wear. For us, it's about intention,
+        self-expression, and an appreciation for the cultural
+        overlaps we get to experience<br>along the way.
+      </p>
+    </div>
+
+    <!-- Bottom center: ( FEATURED PRODUCTS ) label -->
+    <div class="brand-intro-footer">
+      <span class="brand-intro-footer-label">( Featured Products )</span>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════
+       PRODUCTS
+  ══════════════════════════════ -->
+  <section id="products" aria-label="Shop the Collection">
+    <div class="products-top-bar">
+      <span class="products-section-label js-reveal">Current Collection</span>
+      <a href="shop.html" class="products-view-all js-reveal js-reveal-delay-1">View All</a>
+    </div>
+    <!-- Marquee wrapper: clips + scrolls -->
+    <div class="products-marquee">
+      <div class="products-track" id="productsTrack">
+
+        <!-- Original set -->
+        <article class="product-card">
+          <div class="product-card-img">
+            <img class="default-img" src="assets/images/product-1.png" alt="KXM Obsidian Blazer" loading="lazy" />
+            <img class="hover-img" src="assets/images/product-1a.png" alt="KXM Obsidian Blazer Alternate" loading="lazy" />
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-details">
+              <p class="product-card-name">Obsidian Blazer</p>
+              <p class="product-card-price">₹30,435</p>
+            </div>
+            <span class="product-card-arrow">&rarr;</span>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-img">
+            <img class="default-img" src="assets/images/product-2.png" alt="KXM Ivory Wide-Leg" loading="lazy" />
+            <img class="hover-img" src="assets/images/product- 2a.png" alt="KXM Ivory Wide-Leg Alternate" loading="lazy" />
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-details">
+              <p class="product-card-name">Ivory Wide-Leg</p>
+              <p class="product-card-price">₹18,546</p>
+            </div>
+            <span class="product-card-arrow">&rarr;</span>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-img">
+            <img class="default-img" src="assets/images/product-3.png" alt="KXM Dusk Overcoat" loading="lazy" />
+            <img class="hover-img" src="assets/images/product- 3a.png" alt="KXM Dusk Overcoat Alternate" loading="lazy" />
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-details">
+              <p class="product-card-name">Dusk Overcoat</p>
+              <p class="product-card-price">₹45,652</p>
+            </div>
+            <span class="product-card-arrow">&rarr;</span>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-img">
+            <img class="default-img" src="assets/images/collection-women.png" alt="KXM Silence Dress" loading="lazy" />
+            <img class="hover-img" src="assets/images/collection-women a.png" alt="KXM Silence Dress Alternate" loading="lazy" />
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-details">
+              <p class="product-card-name">Silence Dress</p>
+              <p class="product-card-price">₹25,204</p>
+            </div>
+            <span class="product-card-arrow">&rarr;</span>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-img">
+            <img class="default-img" src="assets/images/collection-accessories.png" alt="KXM Archive Set" loading="lazy" />
+            <img class="hover-img" src="assets/images/collection-accessories a.png" alt="KXM Archive Set Alternate" loading="lazy" />
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-details">
+              <p class="product-card-name">Archive Set</p>
+              <p class="product-card-price">From ₹8,084</p>
+            </div>
+            <span class="product-card-arrow">&rarr;</span>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="product-card-img">
+            <img class="default-img" src="assets/images/lookbook- 1.png" alt="KXM Collection" loading="lazy" />
+            <img class="hover-img" src="assets/images/lookbook-1aa.png" alt="KXM Collection Alternate" loading="lazy" />
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-details">
+              <p class="product-card-name">White Edition</p>
+              <p class="product-card-price">₹32,337</p>
+            </div>
+            <span class="product-card-arrow">&rarr;</span>
+          </div>
+        </article>
+
+        <!-- Duplicate set for seamless infinite loop -->
+        <article class="product-card" aria-hidden="true">
+          <div class="product-card-img">
+            <img class="default-img" src="assets/images/product-1.png" alt="" loading="lazy" />
+            <img class="hover-img" src="assets/images/product-1a.png" alt="" loading="lazy" />
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-details">
+              <p class="product-card-name">Obsidian Blazer</p>
+              <p class="product-card-price">₹30,435</p>
+            </div>
+            <span class="product-card-arrow">&rarr;</span>
+          </div>
+        </article>
+        <article class="product-card" aria-hidden="true">
+          <div class="product-card-img">
+            <img class="default-img" src="assets/images/product-2.png" alt="" loading="lazy" />
+            <img class="hover-img" src="assets/images/product- 2a.png" alt="" loading="lazy" />
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-details">
+              <p class="product-card-name">Ivory Wide-Leg</p>
+              <p class="product-card-price">₹18,546</p>
+            </div>
+            <span class="product-card-arrow">&rarr;</span>
+          </div>
+        </article>
+        <article class="product-card" aria-hidden="true">
+          <div class="product-card-img">
+            <img class="default-img" src="assets/images/product-3.png" alt="" loading="lazy" />
+            <img class="hover-img" src="assets/images/product- 3a.png" alt="" loading="lazy" />
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-details">
+              <p class="product-card-name">Dusk Overcoat</p>
+              <p class="product-card-price">₹45,652</p>
+            </div>
+            <span class="product-card-arrow">&rarr;</span>
+          </div>
+        </article>
+        <article class="product-card" aria-hidden="true">
+          <div class="product-card-img">
+            <img class="default-img" src="assets/images/collection-women.png" alt="" loading="lazy" />
+            <img class="hover-img" src="assets/images/collection-women a.png" alt="" loading="lazy" />
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-details">
+              <p class="product-card-name">Silence Dress</p>
+              <p class="product-card-price">₹25,204</p>
+            </div>
+            <span class="product-card-arrow">&rarr;</span>
+          </div>
+        </article>
+        <article class="product-card" aria-hidden="true">
+          <div class="product-card-img">
+            <img class="default-img" src="assets/images/collection-accessories.png" alt="" loading="lazy" />
+            <img class="hover-img" src="assets/images/collection-accessories a.png" alt="" loading="lazy" />
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-details">
+              <p class="product-card-name">Archive Set</p>
+              <p class="product-card-price">From ₹8,084</p>
+            </div>
+            <span class="product-card-arrow">&rarr;</span>
+          </div>
+        </article>
+        <article class="product-card" aria-hidden="true">
+          <div class="product-card-img">
+            <img class="default-img" src="assets/images/lookbook- 1.png" alt="" loading="lazy" />
+            <img class="hover-img" src="assets/images/lookbook-1aa.png" alt="" loading="lazy" />
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-details">
+              <p class="product-card-name">White Edition</p>
+              <p class="product-card-price">₹32,337</p>
+            </div>
+            <span class="product-card-arrow">&rarr;</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       EDITORIAL GRID
+  ══════════════════════════════ -->
+  <section id="editorial" aria-label="KXM Lookbook">
+    <div class="editorial-section-bar">
+      <span class="editorial-section-label">KXM. FASHION / EDITORIAL</span>
+      <span class="editorial-section-label">Lookbook</span>
+    </div>
+    <div class="editorial-grid">
+      <div class="ed-cell ed-cell--span">
+        <img src="assets/images/lookbook-1aa.png" alt="KXM Lookbook — White Collection" loading="lazy" />
+        <span class="ed-cell-label label-dark">Women's</span>
+      </div>
+      <div class="ed-cell">
+        <img class="img-pos-top" src="assets/images/collection-men.png" alt="KXM Men's Collection" loading="lazy" />
+        <span class="ed-cell-label">Men's</span>
+      </div>
+      <div class="ed-cell">
+        <img class="img-pos-top" src="assets/images/lookbook-2.png" alt="KXM Lookbook — Dark" loading="lazy" />
+        <span class="ed-cell-label">Lookbook</span>
+      </div>
+      <div class="ed-cell">
+        <img src="assets/images/collection-accessories.png" alt="KXM Accessories" loading="lazy" />
+        <span class="ed-cell-label label-dark">Accessories</span>
+      </div>
+      <div class="ed-cell">
+        <img src="assets/images/about-editorial.png" alt="KXM Portrait" loading="lazy" />
+        <span class="ed-cell-label">Portrait</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       BRAND STATEMENT
+  ══════════════════════════════ -->
+  <section id="brand-statement" aria-label="KXM Brand Statement">
+    <p class="bs-label js-reveal">The KXM Ethos</p>
+    <div class="bs-quote js-reveal js-reveal-delay-1">
+      Sourced from heritage mills in Italy and Japan,
+      we construct each garment with focus on texture, drape, and longevity.
+      A collection defined by structural cuts, organic materials,
+      and honest finishes that age with grace.
+      Made to be worn, made to endure.
+    </div>
+    <div class="bs-divider js-reveal js-reveal-delay-2">
+      <!-- KXM logo mark centered — exact placement as Odd Ritual's badge -->
+      <img
+        class="bs-logo"
+        src="assets/KXM black text trans bg logo.png"
+        alt="KXM"
+        aria-hidden="true"
+      />
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       LIFESTYLE FULL-BLEED
+  ══════════════════════════════ -->
+  <section id="lifestyle" aria-label="KXM Lifestyle">
+    <img src="assets/images/about-editorial.png" alt="KXM — Quiet Luxury, Loud Intention" loading="lazy" />
+    <div class="lifestyle-overlay"></div>
+    <div class="lifestyle-text">
+      <p class="lifestyle-script">Kxm.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       MORE THAN JUST FASHION
+  ══════════════════════════════ -->
+  <section id="statement" aria-label="KXM Manifesto">
+    <div class="stmt-eyebrow">
+      <span class="stmt-sub">The KXM Manifesto</span>
+    </div>
+    <h1 class="stmt-headline">
+      More Than<br>Just<br>Fashion
+    </h1>
+  </section>
+
+  <!-- ══════════════════════════════
+       CONTENT / BRAND STORY
+  ══════════════════════════════ -->
+  <section id="content" aria-label="About KXM">
+    <div class="content-left">
+      <div class="content-block js-reveal">
+        <span class="content-block-label">01<br>The Origin</span>
+        <div class="content-block-body">
+          <h2 class="content-block-title">Founded on a singular belief</h2>
+          <p class="content-block-text">
+            KXM was born from the idea that exceptional design does not
+            compromise — it clarifies. Every garment begins as a question
+            and ends as an answer about how we move through the world.
+          </p>
+          <a class="content-block-link">[Read our story]</a>
+        </div>
+      </div>
+
+      <div class="content-block js-reveal">
+        <span class="content-block-label">02<br>Materials</span>
+        <div class="content-block-body">
+          <h2 class="content-block-title">Sourced with intention</h2>
+          <p class="content-block-text">
+            We source exclusively from independent mills across Europe and
+            Japan. Each fabric is chosen not for its name, but for the way
+            it holds light and the way it moves. Nothing superfluous.
+          </p>
+          <a class="content-block-link">[Our sourcing]</a>
+        </div>
+      </div>
+
+      <div class="content-block js-reveal">
+        <span class="content-block-label">03<br>Collection</span>
+        <div class="content-block-body">
+          <h2 class="content-block-title">Two drops. One archive.</h2>
+          <p class="content-block-text">
+            Two seasonal drops, anchored by an ongoing archive series.
+            Each piece is numbered, each season is documented. KXM is not
+            about what's current — it's about what endures beyond trends.
+          </p>
+          <a href="shop.html" class="content-block-link">[Shop all]</a>
+        </div>
+      </div>
+
+      <div class="content-block js-reveal">
+        <span class="content-block-label">04<br>Flagship</span>
+        <div class="content-block-body">
+          <h2 class="content-block-title">By appointment, by design</h2>
+          <p class="content-block-text">
+            Visit our KXM flagship in the city's most considered
+            neighbourhood. By appointment only — a singular space designed
+            around the act of choosing well, without distraction.
+          </p>
+          <a href="#newsletterForm" class="content-block-link">[Book an appointment]</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-right">
+      <div class="content-img">
+        <img class="img-pos-top" src="assets/images/collection-men.png" alt="KXM Men's Collection editorial" loading="lazy" />
+      </div>
+      <div class="content-img">
+        <img src="assets/images/collection-accessories.png" alt="KXM Accessories detail" loading="lazy" />
+      </div>
+      <div class="content-img">
+        <img class="img-pos-top" src="assets/images/lookbook-2.png" alt="KXM Lookbook" loading="lazy" />
+      </div>
+      <div class="content-img">
+        <img class="img-pos-top" src="assets/images/hero.png" alt="KXM lifestyle editorial" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       FOOTER
+  ══════════════════════════════ -->
+  <footer id="footer">
+    <!-- Top row: Logo on left, Slogan + Form on right -->
+    <div class="footer-main-row">
+      <div class="footer-logo-col">
+        <img
+          class="footer-logo-img"
+          src="assets/KXM black text trans bg logo.png"
+          alt="KXM"
+        />
+      </div>
+      
+      <div class="footer-right-col">
+        <div class="footer-slogan-col">
+          <h3 class="footer-slogan-title">KXM. CLOTHING ARCHIVE</h3>
+          <p class="footer-slogan-sub">A MODERN EXPRESSION OF INTENTION</p>
+        </div>
+
+        <form class="footer-form" id="newsletterForm">
+          <div class="form-fields">
+            <div class="form-group">
+              <input type="text" id="newsletterName" placeholder="NAME SURNAME" aria-label="Name Surname" required />
+            </div>
+            <div class="form-group">
+              <input type="email" id="newsletterEmail" placeholder="EMAIL" aria-label="Email" required />
+            </div>
+            <button type="submit" class="form-submit">SUBMIT</button>
+          </div>
+          <div class="form-success-msg" id="newsletterSuccess">
+            Thank you. You're on the list.
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Navigation grid -->
+    <div class="footer-nav-grid">
+      <div>
+        <p class="footer-col-label">Site Index</p>
+        <ul class="footer-links">
+          <li><a href="shop.html">Shop Now</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#brand-intro">About Us</a></li>
+          <li><a href="#" class="js-cart-open">Cart</a></li>
+          <li><a href="#footer">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-label">Social</p>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/divyaraj.creates" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-label">Get In Touch</p>
+        <ul class="footer-links">
+          <li><a href="mailto:divyarajc2@gmail.com">divyarajc2@gmail.com</a></li>
+          <li><a href="tel:+919979787087">+91 99797 87087</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-label">Legal</p>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Refunds</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom copyright row -->
+    <div class="footer-bottom">
+      <p class="footer-copy">All Rights Reserved _ KXM©2026</p>
+      <p class="footer-designer">Website by <a href="https://www.instagram.com/divyaraj.creates" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: inherit;">Divyaraj Creates</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // ── NAV COLOUR SWITCH ──
+    const nav    = document.getElementById('nav');
+    const hero   = document.getElementById('hero');
+
+    function updateNav() {
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      if (heroBottom <= 0) {
+        nav.classList.add('nav-light');
+      } else {
+        nav.classList.remove('nav-light');
+      }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    // ── REVEAL ON SCROLL ──
+    const revealEls = document.querySelectorAll('.js-reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    revealEls.forEach(el => io.observe(el));
+
+    // ── SUBTLE HERO PARALLAX ──
+    const heroImgEl = document.querySelector('.hero-img');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y < window.innerHeight * 1.2) {
+        heroImgEl.style.transform = `translateY(${y * 0.28}px)`;
+      }
+    }, { passive: true });
+
+    // ── NAV OVERLAY MENU TOGGLE & HOVER ──
+    const navEl = document.getElementById('nav');
+    const menuToggle = document.getElementById('menuToggle');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const menuBackdrop = document.getElementById('menuBackdrop');
+    const menuCloseBtn = document.getElementById('menuCloseBtn');
+    const body = document.body;
+    const menuLinks = document.querySelectorAll('.menu-link');
+
+    function openMenu() {
+      body.classList.add('menu-open');
+      menuToggle.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMenu() {
+      body.classList.remove('menu-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    function toggleMenu() {
+      if (body.classList.contains('menu-open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    }
+
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    menuBackdrop.addEventListener('click', closeMenu);
+
+    // Close menu when a link inside is clicked
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeMenu();
+        // Remove active class from all links and add to clicked
+        menuLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+
+    const joinFamLink = document.getElementById('joinFamLink');
+    if (joinFamLink) {
+      joinFamLink.addEventListener('click', () => {
+        closeMenu();
+      });
+    }
+
+    // ── CART DRAWER TOGGLE ──
+    const cartDrawer = document.getElementById('cartDrawer');
+    const cartBackdrop = document.getElementById('cartBackdrop');
+    const cartCloseBtn = document.getElementById('cartCloseBtn');
+    const cartShopNowBtn = document.getElementById('cartShopNowBtn');
+    const cartOpenBtns = document.querySelectorAll('.js-cart-open');
+
+    function openCart() {
+      if (body.classList.contains('menu-open')) {
+        closeMenu();
+      }
+      body.classList.add('cart-open');
+    }
+
+    function closeCart() {
+      body.classList.remove('cart-open');
+    }
+
+    cartOpenBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        openCart();
+      });
+    });
+
+    if (cartCloseBtn) {
+      cartCloseBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeCart();
+      });
+    }
+
+    if (cartShopNowBtn) {
+      cartShopNowBtn.addEventListener('click', () => {
+        closeCart();
+      });
+    }
+
+    cartBackdrop.addEventListener('click', closeCart);
+
+    // ── FOOTER NEWSLETTER FORM SUBMIT ──
+    const newsletterForm = document.getElementById('newsletterForm');
+    const formFields = newsletterForm.querySelector('.form-fields');
+    const successMsg = document.getElementById('newsletterSuccess');
+    const nameInput = document.getElementById('newsletterName');
+    const emailInput = document.getElementById('newsletterEmail');
+
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      let isValid = true;
+      const groups = newsletterForm.querySelectorAll('.form-group');
+      groups.forEach(g => g.classList.remove('has-error'));
+
+      // Validate inputs
+      if (!nameInput.value.trim()) {
+        nameInput.closest('.form-group').classList.add('has-error');
+        isValid = false;
+      }
+      if (!emailInput.value.trim() || !emailInput.value.includes('@')) {
+        emailInput.closest('.form-group').classList.add('has-error');
+        isValid = false;
+      }
+
+      if (isValid) {
+        // Fade out inputs
+        formFields.style.opacity = '0';
+        setTimeout(() => {
+          formFields.style.display = 'none';
+          successMsg.style.display = 'block';
+          // Force reflow
+          successMsg.offsetHeight;
+          successMsg.classList.add('show');
+        }, 500); // 500ms aligns with fadeout transition duration
+      }
+    });
+
+    // Reset error state on typing
+    [nameInput, emailInput].forEach(input => {
+      input.addEventListener('input', () => {
+        input.closest('.form-group').classList.remove('has-error');
+      });
+    });
+  </script>
+
+</body>
+</html>
