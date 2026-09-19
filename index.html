@@ -564,6 +564,10 @@
       color: rgba(255,255,255,0.75);
       line-height: 1.1;
     }
+    .hero-cta { transition: opacity 0.3s ease; }
+    .hero-cta:hover { opacity: 0.82; }
+    .hero-cta:hover .hero-cta-sub { color: rgba(255,255,255,0.95); }
+    .hero-cta-sub { transition: color 0.3s ease; }
 
     /* Scroll indicator bottom-right */
     .hero-scroll {
@@ -682,6 +686,8 @@
       overflow: hidden;
       width: 100%;
       padding-bottom: 2.5rem;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 5%, #000 95%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0, #000 5%, #000 95%, transparent 100%);
     }
 
     /* ── The scrolling track — duplicated items for seamless loop ── */
@@ -709,6 +715,11 @@
       display: block;
       color: inherit;
       text-decoration: none;
+    }
+    a.product-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
     }
     .product-card-img {
       width: 300px;
@@ -1335,6 +1346,13 @@
     .skip-link:focus {
       top: var(--margin);
     }
+
+    @media (max-width: 900px) {
+      #brand-intro { grid-template-columns: 1fr; }
+      .brand-intro-right { padding-left: var(--margin); padding-right: var(--margin); }
+      .brand-intro-footer { grid-column: auto; }
+      #lifestyle { height: 62vh; min-height: 420px; }
+    }
   </style>
 </head>
 <body>
@@ -1593,7 +1611,7 @@
             compromise — it clarifies. Every garment begins as a question
             and ends as an answer about how we move through the world.
           </p>
-          <a href="about.html" class="content-block-link">[Read our story]</a>
+          <a href="lookbook.html" class="content-block-link">[Read our story]</a>
         </div>
       </div>
 
@@ -1606,7 +1624,7 @@
             Japan. Each fabric is chosen not for its name, but for the way
             it holds light and the way it moves. Nothing superfluous.
           </p>
-          <a href="about.html#materials" class="content-block-link">[Our sourcing]</a>
+          <a href="#brand-statement" class="content-block-link">[Our sourcing]</a>
         </div>
       </div>
 
@@ -1745,7 +1763,7 @@
           ? `<img class="hover-img" src="${product.images[1]}" alt="" loading="lazy" />`
           : '';
         const defaultAlt = isDuplicate ? '' : `KXM ${product.name}`;
-        const ariaAttr = isDuplicate ? ' aria-hidden="true"' : ` aria-label="${product.name} - ${product.price}"`;
+        const ariaAttr = isDuplicate ? ' aria-hidden="true" tabindex="-1"' : ` aria-label="${product.name} - ${product.price}"`;
         return `
         <a href="product.html?id=${id}" class="product-card"${ariaAttr}>
           <div class="product-card-img">
