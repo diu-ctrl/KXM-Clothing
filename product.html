@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KXM — Product Details</title>
+  <meta name="description" content="Informed by culture, within the context of today's world. KXM produces refined clothing that makes space for both intention and freedom." />
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
   <link rel="stylesheet" href="assets/css/cart.css" />
 
@@ -436,6 +437,30 @@
       flex-direction: column;
       gap: 2rem;
     }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      font-family: var(--font-primary);
+      font-size: 0.58rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--light-faded);
+      margin-bottom: -0.5rem;
+    }
+    .breadcrumb a {
+      color: var(--light-faded);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .breadcrumb a:hover {
+      color: var(--black);
+    }
+    .breadcrumb #breadcrumbName {
+      color: var(--black);
+      font-weight: 600;
+    }
+
     .product-title-row {
       display: flex;
       justify-content: space-between;
@@ -477,12 +502,33 @@
       border-top: 1px solid rgba(2,2,2,0.07);
       padding-top: 1.5rem;
     }
+    .size-selector-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     .size-selector-label {
       font-family: var(--font-primary);
       font-size: 0.58rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
+      color: var(--black);
+    }
+    .size-guide-trigger {
+      font-family: var(--font-primary);
+      font-size: 0.58rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--light-faded);
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+    .size-guide-trigger:hover {
       color: var(--black);
     }
     .size-row {
@@ -534,8 +580,105 @@
     .add-to-cart-btn:hover {
       opacity: 0.85;
     }
+    .add-to-cart-btn:disabled,
+    .add-to-cart-btn.disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
     .add-to-cart-btn.added {
       background: rgba(2,2,2,0.65);
+    }
+
+    /* Size Guide Modal */
+    .size-guide-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 2, 2, 0.25);
+      backdrop-filter: blur(1px);
+      z-index: 300;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--margin);
+    }
+    .size-guide-modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .size-guide-modal {
+      background: var(--white);
+      max-width: 420px;
+      width: 100%;
+      border: 1px solid rgba(2, 2, 2, 0.06);
+      padding: 2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+    .size-guide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1.5rem;
+    }
+    .size-guide-title {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--black);
+      line-height: 1;
+      margin: 0;
+    }
+    .size-guide-close-btn {
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--black);
+      padding: 0;
+      letter-spacing: 0.05em;
+      transition: opacity 0.2s;
+    }
+    .size-guide-close-btn:hover {
+      opacity: 0.6;
+    }
+    .size-guide-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.5rem;
+    }
+    .size-guide-table th {
+      text-align: left;
+      font-weight: 700;
+      color: var(--black);
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(2, 2, 2, 0.15);
+    }
+    .size-guide-table td {
+      padding: 0.6rem 0;
+      color: var(--black);
+      border-bottom: 1px solid rgba(2, 2, 2, 0.06);
+    }
+    .size-guide-table tr:last-child td {
+      border-bottom: none;
+    }
+    .size-guide-footnote {
+      font-family: var(--font-primary);
+      font-size: 0.62rem;
+      line-height: 1.5;
+      color: var(--light-faded);
+      letter-spacing: 0.02em;
+      margin: 0;
     }
 
     /* Accordions */
@@ -862,6 +1005,59 @@
     </div>
   </div>
 
+  <!-- Size Guide Modal Overlay -->
+  <div id="sizeGuideModal" class="size-guide-modal-overlay">
+    <div class="size-guide-modal">
+      <div class="size-guide-header">
+        <h3 class="size-guide-title">Size Guide</h3>
+        <button class="size-guide-close-btn" id="sizeGuideCloseBtn" aria-label="Close size guide">Close</button>
+      </div>
+      <table class="size-guide-table">
+        <thead>
+          <tr>
+            <th>Size</th>
+            <th>Chest (cm)</th>
+            <th>Waist (cm)</th>
+            <th>Hip (cm)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>XS</td>
+            <td>84–88</td>
+            <td>66–70</td>
+            <td>92–96</td>
+          </tr>
+          <tr>
+            <td>S</td>
+            <td>88–92</td>
+            <td>70–74</td>
+            <td>96–100</td>
+          </tr>
+          <tr>
+            <td>M</td>
+            <td>92–96</td>
+            <td>74–78</td>
+            <td>100–104</td>
+          </tr>
+          <tr>
+            <td>L</td>
+            <td>96–102</td>
+            <td>78–84</td>
+            <td>104–110</td>
+          </tr>
+          <tr>
+            <td>XL</td>
+            <td>102–108</td>
+            <td>84–90</td>
+            <td>110–116</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="size-guide-footnote">Measurements in centimetres. Garment is cut for a relaxed fit.</p>
+    </div>
+  </div>
+
   <!-- MAIN PRODUCT DETAILS AREA -->
   <main class="product-detail-container">
     <!-- Left Column: Image Gallery -->
@@ -876,6 +1072,10 @@
 
     <!-- Right Column: Product Information -->
     <div class="product-info-col">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="shop.html">SHOP</a> &nbsp;/&nbsp; <span id="breadcrumbCategory"></span> &nbsp;/&nbsp; <span id="breadcrumbName"></span>
+      </nav>
+
       <div class="product-title-row">
         <h1 class="product-detail-name" id="productName">PRODUCT NAME</h1>
         <span class="product-detail-price" id="productPrice">₹0,000</span>
@@ -887,13 +1087,16 @@
 
       <!-- Size Selector -->
       <div class="size-selector-container">
-        <span class="size-selector-label">SELECT SIZE</span>
+        <div class="size-selector-header">
+          <span class="size-selector-label">SELECT SIZE</span>
+          <button class="size-guide-trigger" type="button" id="sizeGuideTrigger">SIZE GUIDE +</button>
+        </div>
         <div class="size-row" id="sizeRow">
-          <button class="size-btn">XS</button>
-          <button class="size-btn">S</button>
-          <button class="size-btn selected">M</button>
-          <button class="size-btn">L</button>
-          <button class="size-btn">XL</button>
+          <button class="size-btn" type="button">XS</button>
+          <button class="size-btn" type="button">S</button>
+          <button class="size-btn" type="button">M</button>
+          <button class="size-btn" type="button">L</button>
+          <button class="size-btn" type="button">XL</button>
         </div>
       </div>
 
@@ -1008,19 +1211,21 @@
 
     // Populate Page Title & Meta (Done dynamically)
     document.title = `KXM — ${product.name}`;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', product.description || '');
+    }
+
+    // Populate Breadcrumb
+    const breadcrumbCategory = document.getElementById('breadcrumbCategory');
+    const breadcrumbName = document.getElementById('breadcrumbName');
+    if (breadcrumbCategory) breadcrumbCategory.textContent = (product.category || '').toUpperCase();
+    if (breadcrumbName) breadcrumbName.textContent = (product.name || '').toUpperCase();
 
     // Populate Product Details
     document.getElementById('productName').textContent = product.name;
     document.getElementById('productPrice').textContent = product.price;
     document.getElementById('productDescription').textContent = product.description;
-
-    // Populate Size Selector Visibility
-    const sizeContainer = document.querySelector('.size-selector-container');
-    if (product.hasSizes) {
-      sizeContainer.style.display = 'flex';
-    } else {
-      sizeContainer.style.display = 'none';
-    }
 
     // Populate Images Gallery
     const mainImg = document.getElementById('mainImage');
@@ -1130,21 +1335,75 @@
       });
     });
 
-    // ── SIZE SELECTOR BEHAVIOR ──
+    // ── SIZE SELECTOR & GUIDE BEHAVIOR ──
+    const sizeContainer = document.querySelector('.size-selector-container');
+    const sizeGuideTrigger = document.getElementById('sizeGuideTrigger');
+    const sizeGuideModal = document.getElementById('sizeGuideModal');
+    const sizeGuideCloseBtn = document.getElementById('sizeGuideCloseBtn');
+    const addToCartBtn = document.getElementById('addToCartBtn');
     const sizeBtns = document.querySelectorAll('.size-btn');
+
+    // Remove any default selected state
+    sizeBtns.forEach(b => b.classList.remove('selected'));
+
+    if (product.hasSizes) {
+      sizeContainer.style.display = 'flex';
+      if (sizeGuideTrigger) sizeGuideTrigger.style.display = 'inline-block';
+      addToCartBtn.textContent = 'SELECT A SIZE';
+      addToCartBtn.classList.add('disabled');
+      addToCartBtn.disabled = true;
+    } else {
+      sizeContainer.style.display = 'none';
+      if (sizeGuideTrigger) sizeGuideTrigger.style.display = 'none';
+      addToCartBtn.textContent = 'ADD TO CART';
+      addToCartBtn.classList.remove('disabled');
+      addToCartBtn.disabled = false;
+    }
+
     sizeBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         sizeBtns.forEach(b => b.classList.remove('selected'));
         btn.classList.add('selected');
+        addToCartBtn.textContent = 'ADD TO CART';
+        addToCartBtn.classList.remove('disabled');
+        addToCartBtn.disabled = false;
       });
     });
 
+    function openSizeGuide() {
+      if (sizeGuideModal) sizeGuideModal.classList.add('open');
+    }
+    function closeSizeGuide() {
+      if (sizeGuideModal) sizeGuideModal.classList.remove('open');
+    }
+
+    if (sizeGuideTrigger) {
+      sizeGuideTrigger.addEventListener('click', openSizeGuide);
+    }
+    if (sizeGuideCloseBtn) {
+      sizeGuideCloseBtn.addEventListener('click', closeSizeGuide);
+    }
+    if (sizeGuideModal) {
+      sizeGuideModal.addEventListener('click', (e) => {
+        if (e.target === sizeGuideModal) closeSizeGuide();
+      });
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeSizeGuide();
+      }
+    });
+
     // ── ADD TO CART BUTTON BEHAVIOR ──
-    const addToCartBtn = document.getElementById('addToCartBtn');
     addToCartBtn.addEventListener('click', () => {
-      const selectedSize = product.hasSizes 
-        ? (document.querySelector('.size-btn.selected')?.textContent || 'M') 
-        : null;
+      if (addToCartBtn.disabled) return;
+
+      let selectedSize = null;
+      if (product.hasSizes) {
+        const selectedBtn = document.querySelector('.size-btn.selected');
+        if (!selectedBtn) return;
+        selectedSize = selectedBtn.textContent.trim();
+      }
 
       const itemToAdd = {
         id: productId,
