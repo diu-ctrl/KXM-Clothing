@@ -667,6 +667,9 @@
       height: 400px;
       position: relative;
       overflow: hidden;
+      display: block;
+      color: inherit;
+      text-decoration: none;
     }
     .product-card-img {
       width: 300px;
@@ -1421,169 +1424,7 @@
     </div>
     <!-- Marquee wrapper: clips + scrolls -->
     <div class="products-marquee">
-      <div class="products-track" id="productsTrack">
-
-        <!-- Original set -->
-        <article class="product-card">
-          <div class="product-card-img">
-            <img class="default-img" src="assets/images/product-1.png" alt="KXM Obsidian Blazer" loading="lazy" />
-            <img class="hover-img" src="assets/images/product-1a.png" alt="KXM Obsidian Blazer Alternate" loading="lazy" />
-          </div>
-          <div class="product-card-info">
-            <div class="product-card-details">
-              <p class="product-card-name">Obsidian Blazer</p>
-              <p class="product-card-price">₹30,435</p>
-            </div>
-            <span class="product-card-arrow">&rarr;</span>
-          </div>
-        </article>
-        <article class="product-card">
-          <div class="product-card-img">
-            <img class="default-img" src="assets/images/product-2.png" alt="KXM Ivory Wide-Leg" loading="lazy" />
-            <img class="hover-img" src="assets/images/product-2a.png" alt="KXM Ivory Wide-Leg Alternate" loading="lazy" />
-          </div>
-          <div class="product-card-info">
-            <div class="product-card-details">
-              <p class="product-card-name">Ivory Wide-Leg</p>
-              <p class="product-card-price">₹18,546</p>
-            </div>
-            <span class="product-card-arrow">&rarr;</span>
-          </div>
-        </article>
-        <article class="product-card">
-          <div class="product-card-img">
-            <img class="default-img" src="assets/images/product-3.png" alt="KXM Dusk Overcoat" loading="lazy" />
-            <img class="hover-img" src="assets/images/product-3a.png" alt="KXM Dusk Overcoat Alternate" loading="lazy" />
-          </div>
-          <div class="product-card-info">
-            <div class="product-card-details">
-              <p class="product-card-name">Dusk Overcoat</p>
-              <p class="product-card-price">₹45,652</p>
-            </div>
-            <span class="product-card-arrow">&rarr;</span>
-          </div>
-        </article>
-        <article class="product-card">
-          <div class="product-card-img">
-            <img class="default-img" src="assets/images/collection-women.png" alt="KXM Silence Dress" loading="lazy" />
-            <img class="hover-img" src="assets/images/collection-women-a.png" alt="KXM Silence Dress Alternate" loading="lazy" />
-          </div>
-          <div class="product-card-info">
-            <div class="product-card-details">
-              <p class="product-card-name">Silence Dress</p>
-              <p class="product-card-price">₹25,204</p>
-            </div>
-            <span class="product-card-arrow">&rarr;</span>
-          </div>
-        </article>
-        <article class="product-card">
-          <div class="product-card-img">
-            <img class="default-img" src="assets/images/collection-accessories.png" alt="KXM Archive Set" loading="lazy" />
-            <img class="hover-img" src="assets/images/collection-accessories-a.png" alt="KXM Archive Set Alternate" loading="lazy" />
-          </div>
-          <div class="product-card-info">
-            <div class="product-card-details">
-              <p class="product-card-name">Archive Set</p>
-              <p class="product-card-price">From ₹8,084</p>
-            </div>
-            <span class="product-card-arrow">&rarr;</span>
-          </div>
-        </article>
-        <article class="product-card">
-          <div class="product-card-img">
-            <img class="default-img" src="assets/images/lookbook-1.png" alt="KXM Collection" loading="lazy" />
-            <img class="hover-img" src="assets/images/lookbook-1aa.png" alt="KXM Collection Alternate" loading="lazy" />
-          </div>
-          <div class="product-card-info">
-            <div class="product-card-details">
-              <p class="product-card-name">White Edition</p>
-              <p class="product-card-price">₹32,337</p>
-            </div>
-            <span class="product-card-arrow">&rarr;</span>
-          </div>
-        </article>
-
-        <!-- Duplicate set for seamless infinite loop -->
-        <article class="product-card" aria-hidden="true">
-          <div class="product-card-img">
-            <img class="default-img" src="assets/images/product-1.png" alt="" loading="lazy" />
-            <img class="hover-img" src="assets/images/product-1a.png" alt="" loading="lazy" />
-          </div>
-          <div class="product-card-info">
-            <div class="product-card-details">
-              <p class="product-card-name">Obsidian Blazer</p>
-              <p class="product-card-price">₹30,435</p>
-            </div>
-            <span class="product-card-arrow">&rarr;</span>
-          </div>
-        </article>
-        <article class="product-card" aria-hidden="true">
-          <div class="product-card-img">
-            <img class="default-img" src="assets/images/product-2.png" alt="" loading="lazy" />
-            <img class="hover-img" src="assets/images/product-2a.png" alt="" loading="lazy" />
-          </div>
-          <div class="product-card-info">
-            <div class="product-card-details">
-              <p class="product-card-name">Ivory Wide-Leg</p>
-              <p class="product-card-price">₹18,546</p>
-            </div>
-            <span class="product-card-arrow">&rarr;</span>
-          </div>
-        </article>
-        <article class="product-card" aria-hidden="true">
-          <div class="product-card-img">
-            <img class="default-img" src="assets/images/product-3.png" alt="" loading="lazy" />
-            <img class="hover-img" src="assets/images/product-3a.png" alt="" loading="lazy" />
-          </div>
-          <div class="product-card-info">
-            <div class="product-card-details">
-              <p class="product-card-name">Dusk Overcoat</p>
-              <p class="product-card-price">₹45,652</p>
-            </div>
-            <span class="product-card-arrow">&rarr;</span>
-          </div>
-        </article>
-        <article class="product-card" aria-hidden="true">
-          <div class="product-card-img">
-            <img class="default-img" src="assets/images/collection-women.png" alt="" loading="lazy" />
-            <img class="hover-img" src="assets/images/collection-women-a.png" alt="" loading="lazy" />
-          </div>
-          <div class="product-card-info">
-            <div class="product-card-details">
-              <p class="product-card-name">Silence Dress</p>
-              <p class="product-card-price">₹25,204</p>
-            </div>
-            <span class="product-card-arrow">&rarr;</span>
-          </div>
-        </article>
-        <article class="product-card" aria-hidden="true">
-          <div class="product-card-img">
-            <img class="default-img" src="assets/images/collection-accessories.png" alt="" loading="lazy" />
-            <img class="hover-img" src="assets/images/collection-accessories-a.png" alt="" loading="lazy" />
-          </div>
-          <div class="product-card-info">
-            <div class="product-card-details">
-              <p class="product-card-name">Archive Set</p>
-              <p class="product-card-price">From ₹8,084</p>
-            </div>
-            <span class="product-card-arrow">&rarr;</span>
-          </div>
-        </article>
-        <article class="product-card" aria-hidden="true">
-          <div class="product-card-img">
-            <img class="default-img" src="assets/images/lookbook-1.png" alt="" loading="lazy" />
-            <img class="hover-img" src="assets/images/lookbook-1aa.png" alt="" loading="lazy" />
-          </div>
-          <div class="product-card-info">
-            <div class="product-card-details">
-              <p class="product-card-name">White Edition</p>
-              <p class="product-card-price">₹32,337</p>
-            </div>
-            <span class="product-card-arrow">&rarr;</span>
-          </div>
-        </article>
-
-      </div>
+      <div class="products-track" id="productsTrack"></div>
     </div>
   </section>
 
@@ -1819,7 +1660,38 @@
     </div>
   </footer>
 
+  <script src="assets/js/products.js"></script>
   <script>
+    // ── RENDER MARQUEE TRACK FROM PRODUCTS.JS ──
+    const productsTrack = document.getElementById('productsTrack');
+    if (productsTrack && window.KXM_PRODUCTS) {
+      const renderCard = (id, product, isDuplicate) => {
+        const hoverImg = (product.images && product.images[1])
+          ? `<img class="hover-img" src="${product.images[1]}" alt="" loading="lazy" />`
+          : '';
+        const defaultAlt = isDuplicate ? '' : `KXM ${product.name}`;
+        const ariaAttr = isDuplicate ? ' aria-hidden="true"' : ` aria-label="${product.name} - ${product.price}"`;
+        return `
+        <a href="product.html?id=${id}" class="product-card"${ariaAttr}>
+          <div class="product-card-img">
+            <img class="default-img" src="${product.images[0]}" alt="${defaultAlt}" loading="lazy" />
+            ${hoverImg}
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-details">
+              <p class="product-card-name">${product.name}</p>
+              <p class="product-card-price">${product.price}</p>
+            </div>
+            <span class="product-card-arrow">&rarr;</span>
+          </div>
+        </a>`;
+      };
+
+      const originalSet = Object.entries(window.KXM_PRODUCTS).map(([id, p]) => renderCard(id, p, false)).join('');
+      const duplicateSet = Object.entries(window.KXM_PRODUCTS).map(([id, p]) => renderCard(id, p, true)).join('');
+      productsTrack.innerHTML = originalSet + duplicateSet;
+    }
+
     // ── NAV COLOUR SWITCH ──
     const nav    = document.getElementById('nav');
     const hero   = document.getElementById('hero');
