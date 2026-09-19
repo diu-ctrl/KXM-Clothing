@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kxm-by-divyaraj.vercel.app/sitemap.xml
