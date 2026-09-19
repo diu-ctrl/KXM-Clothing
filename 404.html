@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KXM — 404</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <meta name="description" content="Page not found." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --black:          #020202;
+      --white:          #ffffff;
+      --light-grey:     #f4f4f4;
+      --light-faded:    #818181;
+      --font-primary:   'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
+      --font-display:   'Instrument Serif', Georgia, serif;
+      --margin:         clamp(1rem, 0.929rem + 0.357vw, 1.25rem);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-primary);
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* NAV */
+    #nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5rem;
+      padding: 0 var(--margin);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 200;
+      background: transparent;
+    }
+
+    .nav-brand {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      text-transform: lowercase;
+      color: var(--white);
+      text-decoration: none;
+      line-height: 1;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-link {
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .nav-link:hover {
+      opacity: 0.6;
+    }
+
+    /* 404 CANVAS */
+    .not-found-main {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--margin);
+    }
+
+    .not-found-code {
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 20vw, 16rem);
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--white);
+      user-select: none;
+    }
+
+    .not-found-subtitle {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      color: rgba(255, 255, 255, 0.65);
+      margin-top: 1.5rem;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
+
+    .not-found-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .not-found-link {
+      font-family: var(--font-primary);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: underline;
+      text-underline-offset: 0.35em;
+      transition: opacity 0.2s;
+    }
+
+    .not-found-link:hover {
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-brand" aria-label="KXM Home">kxm.</a>
+    <div class="nav-right">
+      <a href="shop.html" class="nav-link">Shop</a>
+      <a href="index.html" class="nav-link">Home</a>
+    </div>
+  </nav>
+
+  <!-- 404 CANVAS -->
+  <main class="not-found-main" role="main">
+    <div class="not-found-code">404</div>
+    <p class="not-found-subtitle">This piece has been archived.</p>
+    <div class="not-found-actions">
+      <a href="index.html" class="not-found-link">[ RETURN HOME ]</a>
+      <a href="shop.html" class="not-found-link">[ SHOP THE COLLECTION ]</a>
+    </div>
+  </main>
+
+</body>
+</html>
