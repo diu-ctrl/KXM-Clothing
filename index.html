@@ -787,6 +787,10 @@
     .ed-cell {
       position: relative;
       overflow: hidden;
+      display: block;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
     }
     .ed-cell--span { grid-row: span 2; }
     .ed-cell img {
@@ -1437,22 +1441,22 @@
       <span class="editorial-section-label">Lookbook</span>
     </div>
     <div class="editorial-grid">
-      <div class="ed-cell ed-cell--span">
+      <a href="shop.html" class="ed-cell ed-cell--span">
         <img src="assets/images/lookbook-1aa.png" alt="KXM Lookbook — White Collection" loading="lazy" />
         <span class="ed-cell-label label-dark">Women's</span>
-      </div>
-      <div class="ed-cell">
+      </a>
+      <a href="shop.html" class="ed-cell">
         <img class="img-pos-top" src="assets/images/collection-men.png" alt="KXM Men's Collection" loading="lazy" />
         <span class="ed-cell-label">Men's</span>
-      </div>
+      </a>
       <div class="ed-cell">
         <img class="img-pos-top" src="assets/images/lookbook-2.png" alt="KXM Lookbook — Dark" loading="lazy" />
         <span class="ed-cell-label">Lookbook</span>
       </div>
-      <div class="ed-cell">
+      <a href="shop.html?category=accessories" class="ed-cell">
         <img src="assets/images/collection-accessories.png" alt="KXM Accessories" loading="lazy" />
         <span class="ed-cell-label label-dark">Accessories</span>
-      </div>
+      </a>
       <div class="ed-cell">
         <img src="assets/images/about-editorial.png" alt="KXM Portrait" loading="lazy" />
         <span class="ed-cell-label">Portrait</span>
