@@ -347,3 +347,16 @@ body:not(.cart-has-items) #cartEmptyState {
     border-left: none !important;
   }
 }
+
+/* Accessibility Focus States */
+.cart-close-btn:focus-visible,
+.cart-qty-btn:focus-visible,
+.cart-remove-btn:focus-visible,
+.cart-checkout-btn:focus-visible,
+.cart-empty-shop-btn:focus-visible,
+.checkout-modal-close-btn:focus-visible,
+.checkout-modal-cta-btn:focus-visible {
+  outline: 1px solid var(--black, #020202);
+  outline-offset: 2px;
+}
+

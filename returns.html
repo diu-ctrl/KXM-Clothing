@@ -412,9 +412,36 @@
         text-align: center;
       }
     }
+
+    /* ── Accessibility & Reduced Motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      .products-track { animation: none; }
+      .js-reveal { opacity: 1; transform: none; transition: none; }
+      * { scroll-behavior: auto !important; }
+    }
+    :focus-visible { outline: 1px solid var(--black); outline-offset: 3px; }
+    #nav :focus-visible, .menu-overlay :focus-visible { outline-color: currentColor; }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: var(--margin);
+      background: var(--black);
+      color: var(--white);
+      padding: 0.6rem 1rem;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      z-index: 400;
+      transition: top 0.2s;
+      text-decoration: none;
+    }
+    .skip-link:focus {
+      top: var(--margin);
+    }
   </style>
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- NAV -->
   <nav id="nav" role="navigation" aria-label="Main navigation">
@@ -461,7 +488,7 @@
   </div>
 
   <!-- MAIN CONTENT -->
-  <main class="legal-container">
+  <main class="legal-container" id="main">
     <section class="legal-section">
       <h2 class="legal-heading">1. Returns window</h2>
       <p class="legal-text">We accept returns within 14 calendar days of your delivery date. To be eligible for return, garments must remain in pristine, unworn, unwashed condition with all original fabric tags and packaging intact.</p>

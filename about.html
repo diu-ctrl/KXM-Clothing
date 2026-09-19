@@ -620,9 +620,36 @@
         text-align: center;
       }
     }
+
+    /* ── Accessibility & Reduced Motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      .products-track { animation: none; }
+      .js-reveal { opacity: 1; transform: none; transition: none; }
+      * { scroll-behavior: auto !important; }
+    }
+    :focus-visible { outline: 1px solid var(--black); outline-offset: 3px; }
+    #nav :focus-visible, .menu-overlay :focus-visible { outline-color: currentColor; }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: var(--margin);
+      background: var(--black);
+      color: var(--white);
+      padding: 0.6rem 1rem;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      z-index: 400;
+      transition: top 0.2s;
+      text-decoration: none;
+    }
+    .skip-link:focus {
+      top: var(--margin);
+    }
   </style>
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- NAV -->
   <nav id="nav" role="navigation" aria-label="Main navigation">
@@ -662,8 +689,8 @@
   <div id="menuBackdrop" class="menu-backdrop"></div>
 
   <!-- ABOUT HERO -->
-  <header class="about-hero">
-    <img src="assets/images/about-editorial.png" alt="The house behind the cloth" class="about-hero-img" />
+  <header class="about-hero" id="main">
+    <img src="assets/images/about-editorial.png" alt="Artisan portrait representing the house behind the cloth" class="about-hero-img" />
     <div class="about-hero-overlay">
       <h1 class="about-hero-headline js-reveal">The house behind the cloth.</h1>
     </div>
@@ -691,7 +718,7 @@
         Made to be worn, made to endure.
       </blockquote>
       <div class="ethos-divider js-reveal js-reveal-delay-2">
-        <img class="ethos-logo" src="assets/images/kxm-logo-black.png" alt="KXM" />
+        <img class="ethos-logo" src="assets/images/kxm-logo-black.png" alt="KXM Logo" />
       </div>
     </div>
   </section>
@@ -755,7 +782,7 @@
   <footer id="footer">
     <div class="footer-main-row">
       <div class="footer-logo-col">
-        <img class="footer-logo-img" src="assets/images/kxm-logo-black.png" alt="KXM" />
+        <img class="footer-logo-img" src="assets/images/kxm-logo-black.png" alt="KXM Logo" />
       </div>
       
       <div class="footer-right-col">

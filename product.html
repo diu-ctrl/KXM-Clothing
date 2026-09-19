@@ -393,7 +393,7 @@
     }
     .main-image-display {
       background: var(--light-grey);
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 4 / 5;
       width: 100%;
       display: flex;
       align-items: center;
@@ -404,7 +404,7 @@
     .main-image-display img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       transition: opacity 0.2s ease;
     }
     .thumbnail-row {
@@ -414,7 +414,7 @@
     }
     .thumbnail-card {
       background: var(--light-grey);
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 4 / 5;
       cursor: pointer;
       overflow: hidden;
       display: flex;
@@ -429,7 +429,7 @@
     .thumbnail-card img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       opacity: 0.65;
       transition: opacity 0.3s;
     }
@@ -926,9 +926,36 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ── Accessibility & Reduced Motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      .products-track { animation: none; }
+      .js-reveal { opacity: 1; transform: none; transition: none; }
+      * { scroll-behavior: auto !important; }
+    }
+    :focus-visible { outline: 1px solid var(--black); outline-offset: 3px; }
+    #nav :focus-visible, .menu-overlay :focus-visible { outline-color: currentColor; }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: var(--margin);
+      background: var(--black);
+      color: var(--white);
+      padding: 0.6rem 1rem;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      z-index: 400;
+      transition: top 0.2s;
+      text-decoration: none;
+    }
+    .skip-link:focus {
+      top: var(--margin);
+    }
   </style>
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- NAV -->
   <nav id="nav" role="navigation" aria-label="Main navigation">
@@ -1067,11 +1094,11 @@
   </div>
 
   <!-- MAIN PRODUCT DETAILS AREA -->
-  <main class="product-detail-container">
+  <main class="product-detail-container" id="main">
     <!-- Left Column: Image Gallery -->
     <div class="product-images-col">
       <div class="main-image-display" id="mainImageDisplay">
-        <img src="assets/images/product-1.png" alt="Product Image" id="mainImage" />
+        <img src="assets/images/product-1.png" alt="KXM product display" id="mainImage" />
       </div>
       <div class="thumbnail-row" id="thumbnailRow">
         <!-- populated dynamically -->

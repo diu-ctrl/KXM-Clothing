@@ -1298,9 +1298,36 @@
       .footer-right-col { flex-direction: column; gap: 2rem; }
       .footer-nav-grid { grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; padding-top: 1.5rem; }
     }
+
+    /* ── Accessibility & Reduced Motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      .products-track { animation: none; }
+      .js-reveal { opacity: 1; transform: none; transition: none; }
+      * { scroll-behavior: auto !important; }
+    }
+    :focus-visible { outline: 1px solid var(--black); outline-offset: 3px; }
+    #nav :focus-visible, .menu-overlay :focus-visible { outline-color: currentColor; }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: var(--margin);
+      background: var(--black);
+      color: var(--white);
+      padding: 0.6rem 1rem;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      z-index: 400;
+      transition: top 0.2s;
+      text-decoration: none;
+    }
+    .skip-link:focus {
+      top: var(--margin);
+    }
   </style>
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- ══════════════════════════════
        NAV
@@ -1390,6 +1417,9 @@
     </div>
   </div>
 
+  <!-- Main content wrapper -->
+  <main id="main">
+
   <!-- ══════════════════════════════
        HERO
   ══════════════════════════════ -->
@@ -1397,7 +1427,7 @@
     <div class="hero-img">
       <img
         src="assets/images/hero-image.png"
-        alt="KXM — Purchase Current Collection"
+        alt="Model in tailored luxury coat from KXM collection"
         loading="eager"
       />
     </div>
@@ -1424,7 +1454,7 @@
       <img
         class="brand-intro-logo"
         src="assets/images/kxm-logo-black.png"
-        alt="KXM"
+        alt="KXM Logo"
       />
     </div>
 
@@ -1470,23 +1500,23 @@
     </div>
     <div class="editorial-grid">
       <a href="shop.html" class="ed-cell ed-cell--span">
-        <img src="assets/images/lookbook-1aa.png" alt="KXM Lookbook — White Collection" loading="lazy" />
+        <img src="assets/images/lookbook-1aa.png" alt="White Edition draped outfit study" loading="lazy" />
         <span class="ed-cell-label label-dark">Women's</span>
       </a>
       <a href="shop.html" class="ed-cell">
-        <img class="img-pos-top" src="assets/images/collection-men.png" alt="KXM Men's Collection" loading="lazy" />
+        <img class="img-pos-top" src="assets/images/collection-men.png" alt="Men's collection structured tailoring" loading="lazy" />
         <span class="ed-cell-label">Men's</span>
       </a>
       <a href="lookbook.html" class="ed-cell">
-        <img class="img-pos-top" src="assets/images/lookbook-2.png" alt="KXM Lookbook — Dark" loading="lazy" />
+        <img class="img-pos-top" src="assets/images/lookbook-2.png" alt="Dark studies editorial portrait" loading="lazy" />
         <span class="ed-cell-label">Lookbook</span>
       </a>
       <a href="shop.html?category=accessories" class="ed-cell">
-        <img src="assets/images/collection-accessories.png" alt="KXM Accessories" loading="lazy" />
+        <img src="assets/images/collection-accessories.png" alt="Handcrafted leather accessories and tote bag" loading="lazy" />
         <span class="ed-cell-label label-dark">Accessories</span>
       </a>
       <div class="ed-cell">
-        <img src="assets/images/about-editorial.png" alt="KXM Portrait" loading="lazy" />
+        <img src="assets/images/about-editorial.png" alt="Textile artisan portrait" loading="lazy" />
         <span class="ed-cell-label">Portrait</span>
       </div>
     </div>
@@ -1519,7 +1549,7 @@
        LIFESTYLE FULL-BLEED
   ══════════════════════════════ -->
   <section id="lifestyle" aria-label="KXM Lifestyle">
-    <img src="assets/images/about-editorial.png" alt="KXM — Quiet Luxury, Loud Intention" loading="lazy" />
+    <img src="assets/images/about-editorial.png" alt="Artisan portrait in heritage textile workshop" loading="lazy" />
     <div class="lifestyle-overlay"></div>
     <div class="lifestyle-text">
       <p class="lifestyle-script">Kxm.</p>
@@ -1598,19 +1628,20 @@
 
     <div class="content-right">
       <div class="content-img">
-        <img class="img-pos-top" src="assets/images/collection-men.png" alt="KXM Men's Collection editorial" loading="lazy" />
+        <img class="img-pos-top" src="assets/images/collection-men.png" alt="Minimalist menswear tailoring silhouette" loading="lazy" />
       </div>
       <div class="content-img">
-        <img src="assets/images/collection-accessories.png" alt="KXM Accessories detail" loading="lazy" />
+        <img src="assets/images/collection-accessories.png" alt="Artisanal leather bag and strap detail" loading="lazy" />
       </div>
       <div class="content-img">
-        <img class="img-pos-top" src="assets/images/lookbook-2.png" alt="KXM Lookbook" loading="lazy" />
+        <img class="img-pos-top" src="assets/images/lookbook-2.png" alt="Close-up fabric drape and texture study" loading="lazy" />
       </div>
       <div class="content-img">
-        <img class="img-pos-top" src="assets/images/hero.png" alt="KXM lifestyle editorial" loading="lazy" />
+        <img class="img-pos-top" src="assets/images/hero.png" alt="Editorial landscape model portrait" loading="lazy" />
       </div>
     </div>
   </section>
+  </main>
 
   <!-- ══════════════════════════════
        FOOTER
@@ -1622,7 +1653,7 @@
         <img
           class="footer-logo-img"
           src="assets/images/kxm-logo-black.png"
-          alt="KXM"
+          alt="KXM Logo"
         />
       </div>
       
@@ -1755,6 +1786,7 @@
     // ── SUBTLE HERO PARALLAX ──
     const heroImgEl = document.querySelector('.hero-img');
     window.addEventListener('scroll', () => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       const y = window.scrollY;
       if (y < window.innerHeight * 1.2) {
         heroImgEl.style.transform = `translateY(${y * 0.28}px)`;
