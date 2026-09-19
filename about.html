@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KXM — About</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="stylesheet" href="assets/css/cart.css" />
+  <meta name="description" content="The house behind the cloth. Sourced from heritage mills in Italy and Japan, KXM produces refined clothing that makes space for intention and freedom." />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kxm-by-divyaraj.vercel.app/about.html" />
+  <meta property="og:title" content="KXM — About" />
+  <meta property="og:description" content="The house behind the cloth. Sourced from heritage mills in Italy and Japan, KXM produces refined clothing that makes space for intention and freedom." />
+  <meta property="og:image" content="https://kxm-by-divyaraj.vercel.app/assets/images/hero-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://kxm-by-divyaraj.vercel.app/about.html" />
+  <meta name="twitter:title" content="KXM — About" />
+  <meta name="twitter:description" content="The house behind the cloth. Sourced from heritage mills in Italy and Japan, KXM produces refined clothing that makes space for intention and freedom." />
+  <meta name="twitter:image" content="https://kxm-by-divyaraj.vercel.app/assets/images/hero-image.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --black:          #020202;
+      --white:          #ffffff;
+      --light-grey:     #f4f4f4;
+      --light-faded:    #818181;
+      --dark-faded-1:   rgba(2,2,2,0.1);
+      --dark-faded-4:   rgba(2,2,2,0.4);
+      --dark-faded-8:   rgba(2,2,2,0.8);
+      --faded-text:     #cccccc;
+
+      --font-primary:   'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
+      --font-display:   'Instrument Serif', Georgia, serif;
+      --font-italic:    'Instrument Serif', Georgia, serif;
+
+      --margin:         clamp(1rem, 0.929rem + 0.357vw, 1.25rem);
+      --gutter:         0.65rem;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--white);
+      color: var(--black);
+    }
+
+    body {
+      font-family: var(--font-primary);
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* NAV */
+    #nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5rem;
+      padding: 0 var(--margin);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 200;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(2, 2, 2, 0.05);
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .nav-brand {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      text-transform: lowercase;
+      color: var(--black);
+      text-decoration: none;
+      line-height: 1;
+    }
+
+    .nav-menu-toggle {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 2.75rem;
+      height: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      padding: 0;
+      z-index: 205;
+    }
+
+    .nav-menu-toggle .toggle-line {
+      width: 1.75rem;
+      height: 1px;
+      background: var(--black);
+      display: block;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+      transform-origin: center;
+    }
+
+    body.menu-open .nav-menu-toggle .toggle-line:first-child {
+      transform: translateY(3px) rotate(45deg);
+    }
+    body.menu-open .nav-menu-toggle .toggle-line:last-child {
+      transform: translateY(-3px) rotate(-45deg);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-link-shop,
+    .nav-link-cart {
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration: none;
+      position: relative;
+      transition: opacity 0.2s;
+    }
+
+    .nav-link-shop:hover,
+    .nav-link-cart:hover {
+      opacity: 0.6;
+    }
+
+    .nav-link-cart .cart-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 15px;
+      height: 15px;
+      background: var(--black);
+      color: var(--white);
+      font-size: 0.55rem;
+      font-weight: 700;
+      border-radius: 50%;
+      margin-left: 0.35rem;
+      vertical-align: middle;
+    }
+
+    /* MENU OVERLAY */
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 55vh;
+      min-height: 480px;
+      background: var(--white);
+      z-index: 190;
+      transform: translateY(-100%);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: var(--margin) var(--margin) 2rem var(--margin);
+      border-bottom: 1px solid rgba(2,2,2,0.06);
+    }
+    body.menu-open .menu-overlay {
+      transform: translateY(0);
+    }
+    .menu-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+      padding-top: 5rem;
+    }
+    .menu-main-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.1rem;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+    .menu-link {
+      font-family: var(--font-primary);
+      font-size: clamp(1.8rem, 4.5vw, 3.4rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: rgba(2,2,2,0.22);
+      transition: color 0.3s ease, text-decoration-color 0.3s ease;
+      letter-spacing: -0.01em;
+      text-decoration: underline;
+      text-underline-offset: 0.22em;
+      text-decoration-color: transparent;
+    }
+    .menu-link:hover,
+    .menu-link.active {
+      color: rgba(2, 2, 2, 0.85);
+      text-decoration-color: rgba(2, 2, 2, 0.35);
+    }
+    .menu-bottom-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: flex-end;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(2,2,2,0.05);
+    }
+    .menu-bottom-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .menu-sub-link {
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--black);
+      letter-spacing: 0.05em;
+      transition: opacity 0.2s;
+      text-decoration: none;
+    }
+    .menu-sub-link:hover {
+      opacity: 0.6;
+    }
+    .menu-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(2,2,2,0.25);
+      backdrop-filter: blur(1px);
+      z-index: 180;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    body.menu-open .menu-backdrop {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ABOUT HERO */
+    .about-hero {
+      position: relative;
+      width: 100%;
+      height: 75vh;
+      min-height: 520px;
+      margin-top: 5rem;
+      overflow: hidden;
+      background: var(--black);
+    }
+    .about-hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      opacity: 0.85;
+    }
+    .about-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(2,2,2,0.1) 0%, rgba(2,2,2,0.7) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 3rem var(--margin);
+    }
+    .about-hero-headline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(2.5rem, 5.5vw, 4.8rem);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.1;
+      max-width: 800px;
+      letter-spacing: -0.01em;
+    }
+
+    /* MANIFESTO SECTION */
+    .manifesto-section {
+      background: var(--black);
+      color: var(--white);
+      padding: 6.5rem var(--margin);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .stmt-eyebrow {
+      margin-bottom: 2rem;
+    }
+    .stmt-sub {
+      font-family: var(--font-primary);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white);
+      opacity: 0.45;
+    }
+    .stmt-headline {
+      font-family: var(--font-primary);
+      font-size: clamp(3.2rem, 8.5vw, 7.5rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.92;
+      color: var(--white);
+    }
+
+    /* ETHOS SECTION */
+    .ethos-section {
+      background: var(--white);
+      padding: 6.5rem var(--margin);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border-bottom: 1px solid rgba(2,2,2,0.06);
+    }
+    .ethos-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .ethos-label {
+      font-family: var(--font-primary);
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--light-faded);
+      margin-bottom: 2rem;
+    }
+    .ethos-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.6rem, 3.2vw, 2.7rem);
+      line-height: 1.4;
+      font-weight: 400;
+      color: var(--black);
+      margin-bottom: 3.5rem;
+    }
+    .ethos-divider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .ethos-logo {
+      width: 48px;
+      height: auto;
+      opacity: 0.85;
+    }
+
+    /* NUMBERED BLOCKS */
+    .blocks-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem var(--margin);
+      display: flex;
+      flex-direction: column;
+      gap: 4.5rem;
+    }
+    .about-block {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 3rem;
+      padding-bottom: 4.5rem;
+      border-bottom: 1px solid rgba(2,2,2,0.06);
+    }
+    .about-block:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .about-block-label {
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--black);
+      line-height: 1.4;
+    }
+    .about-block-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      max-width: 680px;
+    }
+    .about-block-title {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.75rem, 3vw, 2.4rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--black);
+    }
+    .about-block-text {
+      font-family: var(--font-primary);
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: rgba(2,2,2,0.7);
+    }
+    .content-block-link {
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration: none;
+      margin-top: 0.5rem;
+      display: inline-block;
+      transition: opacity 0.2s;
+    }
+    .content-block-link:hover {
+      opacity: 0.5;
+    }
+
+    /* FOOTER */
+    #footer {
+      background: var(--light-grey);
+      color: var(--black);
+      padding: 5rem var(--margin) 2.5rem;
+      border-top: 1px solid rgba(2,2,2,0.06);
+    }
+    .footer-main-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(2,2,2,0.06);
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .footer-logo-img {
+      width: 64px;
+      height: auto;
+    }
+    .footer-right-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 480px;
+      width: 100%;
+    }
+    .footer-slogan-title {
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+    .footer-slogan-sub {
+      font-family: var(--font-primary);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--light-faded);
+      margin-top: 0.25rem;
+    }
+    .footer-form .form-fields {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-form input {
+      flex: 1;
+      min-width: 130px;
+      background: var(--white);
+      border: 1px solid rgba(2,2,2,0.15);
+      padding: 0.75rem 1rem;
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      color: var(--black);
+      outline: none;
+    }
+    .footer-form input::placeholder {
+      color: var(--light-faded);
+    }
+    .form-submit {
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .form-submit:hover {
+      opacity: 0.85;
+    }
+    .form-success-msg {
+      display: none;
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      color: var(--black);
+      margin-top: 0.5rem;
+    }
+    .footer-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+    }
+    .footer-col-label {
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 1.25rem;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      list-style: none;
+    }
+    .footer-links a {
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--light-faded);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: var(--black);
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-primary);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+    .footer-copy {
+      color: var(--black);
+    }
+    .footer-designer {
+      color: var(--light-faded);
+      font-weight: 500;
+    }
+
+    /* REVEAL ANIMATIONS */
+    .js-reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .js-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .js-reveal-delay-1 { transition-delay: 0.1s; }
+    .js-reveal-delay-2 { transition-delay: 0.2s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .about-block {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      .footer-nav-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+    }
+    @media (max-width: 600px) {
+      .footer-main-row {
+        flex-direction: column;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-brand" id="navBrand" aria-label="KXM Home">kxm.</a>
+
+    <button class="nav-menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
+    </button>
+
+    <div class="nav-right">
+      <a href="shop.html" class="nav-link-shop">Shop Now</a>
+      <a href="javascript:void(0)" class="nav-link-cart js-cart-open">Cart</a>
+    </div>
+  </nav>
+
+  <!-- Menu Overlay -->
+  <div id="menuOverlay" class="menu-overlay">
+    <div class="menu-content">
+      <div class="menu-main-links">
+        <a href="shop.html" class="menu-link">Our Shop</a>
+        <a href="index.html" class="menu-link">Home</a>
+        <a href="about.html" class="menu-link active">About Us</a>
+        <a href="lookbook.html" class="menu-link">Lookbook</a>
+        <a href="#footer" class="menu-link">Contact</a>
+      </div>
+      <div class="menu-bottom-row">
+        <div class="menu-bottom-left"></div>
+        <div class="menu-bottom-center">
+          <a href="javascript:void(0)" class="menu-sub-link js-cart-open">My Cart</a>
+          <a href="index.html#newsletterForm" class="menu-sub-link" id="joinFamLink">Join The Fam</a>
+        </div>
+        <div class="menu-bottom-right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="menuBackdrop" class="menu-backdrop"></div>
+
+  <!-- ABOUT HERO -->
+  <header class="about-hero">
+    <img src="assets/images/about-editorial.png" alt="The house behind the cloth" class="about-hero-img" />
+    <div class="about-hero-overlay">
+      <h1 class="about-hero-headline js-reveal">The house behind the cloth.</h1>
+    </div>
+  </header>
+
+  <!-- MANIFESTO -->
+  <section class="manifesto-section" aria-label="KXM Manifesto">
+    <div class="stmt-eyebrow js-reveal">
+      <span class="stmt-sub">The KXM Manifesto</span>
+    </div>
+    <div class="stmt-headline js-reveal js-reveal-delay-1">
+      More Than<br>Just<br>Fashion
+    </div>
+  </section>
+
+  <!-- ETHOS -->
+  <section class="ethos-section" aria-label="The KXM Ethos">
+    <div class="ethos-inner">
+      <p class="ethos-label js-reveal">The KXM Ethos</p>
+      <blockquote class="ethos-quote js-reveal js-reveal-delay-1">
+        Sourced from heritage mills in Italy and Japan,
+        we construct each garment with focus on texture, drape, and longevity.
+        A collection defined by structural cuts, organic materials,
+        and honest finishes that age with grace.
+        Made to be worn, made to endure.
+      </blockquote>
+      <div class="ethos-divider js-reveal js-reveal-delay-2">
+        <img class="ethos-logo" src="assets/images/kxm-logo-black.png" alt="KXM" />
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMBERED BLOCKS -->
+  <section class="blocks-container" aria-label="Brand Pillars">
+    <article class="about-block js-reveal">
+      <span class="about-block-label">01 / The Origin</span>
+      <div class="about-block-body">
+        <h2 class="about-block-title">Founded on a singular belief</h2>
+        <p class="about-block-text">
+          KXM was born from the idea that exceptional design does not
+          compromise — it clarifies. Every garment begins as a question
+          and ends as an answer about how we move through the world.
+        </p>
+        <a href="shop.html" class="content-block-link">[Shop the collection]</a>
+      </div>
+    </article>
+
+    <article class="about-block js-reveal" id="materials">
+      <span class="about-block-label">02 / Materials</span>
+      <div class="about-block-body">
+        <h2 class="about-block-title">Sourced with intention</h2>
+        <p class="about-block-text">
+          We source exclusively from independent mills across Europe and
+          Japan. Each fabric is chosen not for its name, but for the way
+          it holds light and the way it moves. Nothing superfluous.
+        </p>
+        <a href="lookbook.html" class="content-block-link">[View the lookbook]</a>
+      </div>
+    </article>
+
+    <article class="about-block js-reveal">
+      <span class="about-block-label">03 / Collection</span>
+      <div class="about-block-body">
+        <h2 class="about-block-title">Two drops. One archive.</h2>
+        <p class="about-block-text">
+          Two seasonal drops, anchored by an ongoing archive series.
+          Each piece is numbered, each season is documented. KXM is not
+          about what's current — it's about what endures beyond trends.
+        </p>
+        <a href="shop.html" class="content-block-link">[Shop the collection]</a>
+      </div>
+    </article>
+
+    <article class="about-block js-reveal">
+      <span class="about-block-label">04 / Flagship</span>
+      <div class="about-block-body">
+        <h2 class="about-block-title">By appointment, by design</h2>
+        <p class="about-block-text">
+          Visit our KXM flagship in the city's most considered
+          neighbourhood. By appointment only — a singular space designed
+          around the act of choosing well, without distraction.
+        </p>
+        <a href="shop.html" class="content-block-link">[Shop the collection]</a>
+      </div>
+    </article>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-main-row">
+      <div class="footer-logo-col">
+        <img class="footer-logo-img" src="assets/images/kxm-logo-black.png" alt="KXM" />
+      </div>
+      
+      <div class="footer-right-col">
+        <div class="footer-slogan-col">
+          <h3 class="footer-slogan-title">KXM. CLOTHING ARCHIVE</h3>
+          <p class="footer-slogan-sub">A MODERN EXPRESSION OF INTENTION</p>
+        </div>
+
+        <form class="footer-form" id="newsletterForm">
+          <div class="form-fields">
+            <input type="text" id="newsletterName" placeholder="NAME SURNAME" aria-label="Name Surname" required />
+            <input type="email" id="newsletterEmail" placeholder="EMAIL" aria-label="Email" required />
+            <button type="submit" class="form-submit">SUBMIT</button>
+          </div>
+          <div class="form-success-msg" id="newsletterSuccess">
+            Thank you. You're on the list.
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-nav-grid">
+      <div>
+        <p class="footer-col-label">Site Index</p>
+        <ul class="footer-links">
+          <li><a href="shop.html">Shop Now</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="javascript:void(0)" class="js-cart-open">Cart</a></li>
+          <li><a href="#footer">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-label">Social</p>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/divyaraj.creates" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-label">Get In Touch</p>
+        <ul class="footer-links">
+          <li><a href="mailto:divyarajc2@gmail.com">divyarajc2@gmail.com</a></li>
+          <li><a href="tel:+919979787087">+91 99797 87087</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-label">Legal</p>
+        <ul class="footer-links">
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="returns.html">Refunds</a></li>
+          <li><a href="shipping.html">Shipping</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">All Rights Reserved _ KXM©2026</p>
+      <p class="footer-designer">Website by <a href="https://divyaraj-exhibit.vercel.app/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: inherit;">Divyaraj Creates</a></p>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div id="cartDrawer" class="cart-drawer">
+    <div class="cart-header">
+      <span class="cart-header-title">My Cart</span>
+      <button class="cart-close-btn" id="cartCloseBtn">Close</button>
+    </div>
+    
+    <div class="cart-items-container" id="cartItemsContainer"></div>
+    
+    <div class="cart-footer" id="cartFooter">
+      <div class="cart-footer-row">
+        <span class="cart-footer-label">Subtotal</span>
+        <span class="cart-footer-value" id="cartSubtotalValue">₹0</span>
+      </div>
+      <div class="cart-footer-row">
+        <span class="cart-footer-label">Shipping</span>
+        <span class="cart-footer-value shipping-calculated">Calculated at checkout</span>
+      </div>
+      <div class="cart-footer-divider"></div>
+      <button class="cart-checkout-btn" id="cartCheckoutBtn">Checkout</button>
+    </div>
+
+    <div class="cart-empty-state" id="cartEmptyState">
+      <h3 class="cart-empty-title">Your Cart is Empty</h3>
+      <p class="cart-empty-subtitle">Come on, treat yourself. You deserve it.</p>
+      <a href="shop.html" class="cart-shop-now-btn" id="cartShopNowBtn">[ Shop Now ]</a>
+    </div>
+  </div>
+  <div id="cartBackdrop" class="cart-backdrop"></div>
+
+  <!-- Checkout Demo Modal Overlay -->
+  <div id="checkoutModal" class="checkout-modal-overlay">
+    <div class="checkout-modal">
+      <button class="checkout-modal-close-btn" id="checkoutModalCloseBtn" aria-label="Close modal">&times;</button>
+      <h3 class="checkout-modal-heading">Thank You for Exploring</h3>
+      <p class="checkout-modal-text">This is a demonstration website created for portfolio purposes. Kxm. is an imaginary brand, and purchases cannot be completed.</p>
+      <p class="checkout-modal-text">If you're interested in a website like this for your brand, let's talk.</p>
+      <a href="mailto:divyarajc2@gmail.com" class="checkout-modal-cta-btn">Get in Touch</a>
+    </div>
+  </div>
+
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script>
+    const body = document.body;
+    const menuToggle = document.getElementById('menuToggle');
+    const menuBackdrop = document.getElementById('menuBackdrop');
+    const menuLinks = document.querySelectorAll('.menu-link');
+
+    function openMenu() {
+      body.classList.add('menu-open');
+      if (menuToggle) menuToggle.setAttribute('aria-expanded', 'true');
+    }
+    function closeMenu() {
+      body.classList.remove('menu-open');
+      if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+    }
+    function toggleMenu() {
+      if (body.classList.contains('menu-open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    }
+
+    if (menuToggle) {
+      menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
+      });
+    }
+    if (menuBackdrop) {
+      menuBackdrop.addEventListener('click', closeMenu);
+    }
+    menuLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll('.js-reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
