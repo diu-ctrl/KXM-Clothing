@@ -640,7 +640,7 @@
         <a href="index.html" class="menu-link">Home</a>
         <a href="about.html" class="menu-link active">About Us</a>
         <a href="lookbook.html" class="menu-link">Lookbook</a>
-        <a href="#footer" class="menu-link">Contact</a>
+        <a href="contact.html" class="menu-link">Contact</a>
       </div>
       <div class="menu-bottom-row">
         <div class="menu-bottom-left"></div>
@@ -761,6 +761,7 @@
           <div class="form-fields">
             <input type="text" id="newsletterName" placeholder="NAME SURNAME" aria-label="Name Surname" required />
             <input type="email" id="newsletterEmail" placeholder="EMAIL" aria-label="Email" required />
+            <input type="text" name="company_website" style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0;" tabindex="-1" autocomplete="off" aria-hidden="true" />
             <button type="submit" class="form-submit">SUBMIT</button>
           </div>
           <div class="form-success-msg" id="newsletterSuccess">
@@ -778,7 +779,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="javascript:void(0)" class="js-cart-open">Cart</a></li>
-          <li><a href="#footer">Contact Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
       <div>
@@ -903,6 +904,53 @@
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
     revealEls.forEach(el => io.observe(el));
+
+    // Footer Newsletter Form
+    const newsletterForm = document.getElementById('newsletterForm');
+    if (newsletterForm) {
+      const formFields = newsletterForm.querySelector('.form-fields');
+      const newsletterSuccess = document.getElementById('newsletterSuccess');
+      const newsletterName = document.getElementById('newsletterName');
+      const newsletterEmail = document.getElementById('newsletterEmail');
+      const newsHoneypot = newsletterForm.querySelector('input[name="company_website"]');
+
+      newsletterForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        if (newsHoneypot && newsHoneypot.value.trim() !== '') {
+          return;
+        }
+
+        const name = newsletterName.value.trim();
+        const email = newsletterEmail.value.trim();
+        if (!name || !email || !email.includes('@')) return;
+
+        formFields.style.opacity = '0';
+        setTimeout(function () {
+          formFields.style.display = 'none';
+          newsletterSuccess.style.display = 'block';
+          newsletterSuccess.offsetHeight;
+          newsletterSuccess.classList.add('show');
+        }, 500);
+
+        fetch('https://formspree.io/f/XXXXXXXX', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: new URLSearchParams({
+            NAME: name,
+            EMAIL: email,
+            _subject: 'KXM — Mailing List Signup',
+            _template: 'table',
+            _captcha: 'false'
+          }).toString()
+        }).catch(function (err) {
+          console.error(err);
+        });
+      });
+    }
   </script>
 </body>
 </html>

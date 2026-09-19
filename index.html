@@ -1303,7 +1303,7 @@
         <a href="index.html" class="menu-link">Home</a>
         <a href="about.html" class="menu-link">About Us</a>
         <a href="lookbook.html" class="menu-link">Lookbook</a>
-        <a href="#footer" class="menu-link">Contact</a>
+        <a href="contact.html" class="menu-link">Contact</a>
       </div>
       <div class="menu-bottom-row">
         <div class="menu-bottom-left"></div>
@@ -1613,6 +1613,7 @@
             <div class="form-group">
               <input type="email" id="newsletterEmail" placeholder="EMAIL" aria-label="Email" required />
             </div>
+            <input type="text" name="company_website" style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0;" tabindex="-1" autocomplete="off" aria-hidden="true" />
             <button type="submit" class="form-submit">SUBMIT</button>
           </div>
           <div class="form-success-msg" id="newsletterSuccess">
@@ -1631,7 +1632,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="#" class="js-cart-open">Cart</a></li>
-          <li><a href="#footer">Contact Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
       <div>
@@ -1818,6 +1819,26 @@
           successMsg.offsetHeight;
           successMsg.classList.add('show');
         }, 500); // 500ms aligns with fadeout transition duration
+
+        const newsHoneypot = newsletterForm.querySelector('input[name="company_website"]');
+        if (!newsHoneypot || !newsHoneypot.value.trim()) {
+          fetch('https://formspree.io/f/XXXXXXXX', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({
+              NAME: nameInput.value.trim(),
+              EMAIL: emailInput.value.trim(),
+              _subject: 'KXM — Mailing List Signup',
+              _template: 'table',
+              _captcha: 'false'
+            }).toString()
+          }).catch(function (err) {
+            console.error(err);
+          });
+        }
       }
     });
 

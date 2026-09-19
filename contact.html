@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KXM — Contact</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="stylesheet" href="assets/css/cart.css" />
+  <meta name="description" content="Contact KXM — enquiries, appointments and the mailing list." />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kxm-by-divyaraj.vercel.app/contact.html" />
+  <meta property="og:title" content="KXM — Contact" />
+  <meta property="og:description" content="Contact KXM — enquiries, appointments and the mailing list." />
+  <meta property="og:image" content="https://kxm-by-divyaraj.vercel.app/assets/images/hero-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://kxm-by-divyaraj.vercel.app/contact.html" />
+  <meta name="twitter:title" content="KXM — Contact" />
+  <meta name="twitter:description" content="Contact KXM — enquiries, appointments and the mailing list." />
+  <meta name="twitter:image" content="https://kxm-by-divyaraj.vercel.app/assets/images/hero-image.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --black:          #020202;
+      --white:          #ffffff;
+      --light-grey:     #f4f4f4;
+      --light-faded:    #818181;
+      --dark-faded-1:   rgba(2,2,2,0.1);
+      --dark-faded-4:   rgba(2,2,2,0.4);
+      --dark-faded-8:   rgba(2,2,2,0.8);
+      --faded-text:     #cccccc;
+
+      --font-primary:   'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
+      --font-display:   'Instrument Serif', Georgia, serif;
+      --font-italic:    'Instrument Serif', Georgia, serif;
+
+      --margin:         clamp(1rem, 0.929rem + 0.357vw, 1.25rem);
+      --gutter:         0.65rem;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--white);
+      color: var(--black);
+    }
+
+    body {
+      font-family: var(--font-primary);
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* NAV */
+    #nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5rem;
+      padding: 0 var(--margin);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 200;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(2, 2, 2, 0.05);
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .nav-brand {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      text-transform: lowercase;
+      color: var(--black);
+      text-decoration: none;
+      line-height: 1;
+    }
+
+    .nav-menu-toggle {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 2.75rem;
+      height: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      padding: 0;
+      z-index: 205;
+    }
+
+    .nav-menu-toggle .toggle-line {
+      width: 1.75rem;
+      height: 1px;
+      background: var(--black);
+      display: block;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+      transform-origin: center;
+    }
+
+    body.menu-open .nav-menu-toggle .toggle-line:first-child {
+      transform: translateY(3px) rotate(45deg);
+    }
+    body.menu-open .nav-menu-toggle .toggle-line:last-child {
+      transform: translateY(-3px) rotate(-45deg);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-link-shop,
+    .nav-link-cart {
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration: none;
+      position: relative;
+      transition: opacity 0.2s;
+    }
+
+    .nav-link-shop:hover,
+    .nav-link-cart:hover {
+      opacity: 0.6;
+    }
+
+    .nav-link-cart .cart-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 15px;
+      height: 15px;
+      background: var(--black);
+      color: var(--white);
+      font-size: 0.55rem;
+      font-weight: 700;
+      border-radius: 50%;
+      margin-left: 0.35rem;
+      vertical-align: middle;
+    }
+
+    /* MENU OVERLAY */
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 55vh;
+      min-height: 480px;
+      background: var(--white);
+      z-index: 190;
+      transform: translateY(-100%);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: var(--margin) var(--margin) 2rem var(--margin);
+      border-bottom: 1px solid rgba(2,2,2,0.06);
+    }
+    body.menu-open .menu-overlay {
+      transform: translateY(0);
+    }
+    .menu-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+      padding-top: 5rem;
+    }
+    .menu-main-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.1rem;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+    .menu-link {
+      font-family: var(--font-primary);
+      font-size: clamp(1.8rem, 4.5vw, 3.4rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: rgba(2,2,2,0.22);
+      transition: color 0.3s ease, text-decoration-color 0.3s ease;
+      letter-spacing: -0.01em;
+      text-decoration: underline;
+      text-underline-offset: 0.22em;
+      text-decoration-color: transparent;
+    }
+    .menu-link:hover,
+    .menu-link.active {
+      color: rgba(2, 2, 2, 0.85);
+      text-decoration-color: rgba(2, 2, 2, 0.35);
+    }
+    .menu-bottom-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: flex-end;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(2,2,2,0.05);
+    }
+    .menu-bottom-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .menu-sub-link {
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--black);
+      letter-spacing: 0.05em;
+      transition: opacity 0.2s;
+      text-decoration: none;
+    }
+    .menu-sub-link:hover {
+      opacity: 0.6;
+    }
+    .menu-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(2,2,2,0.25);
+      backdrop-filter: blur(1px);
+      z-index: 180;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    body.menu-open .menu-backdrop {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* MAIN CONTACT LAYOUT */
+    .contact-main {
+      margin-top: 5rem;
+      min-height: calc(100vh - 5rem);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      padding: 5rem var(--margin) 6rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .contact-headline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+    .contact-intro {
+      font-family: var(--font-primary);
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--light-faded);
+      margin-bottom: 3.5rem;
+      max-width: 440px;
+    }
+
+    .contact-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      border-top: 1px solid rgba(2,2,2,0.08);
+      padding-top: 2rem;
+      max-width: 440px;
+    }
+    .contact-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .contact-row-label {
+      font-family: var(--font-primary);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--light-faded);
+    }
+    .contact-row-value {
+      font-family: var(--font-primary);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--black);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .contact-row-value:hover {
+      opacity: 0.6;
+    }
+
+    /* FORM STYLING */
+    .contact-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 2.25rem;
+      width: 100%;
+    }
+    .contact-form .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      position: relative;
+    }
+    .contact-form .form-label {
+      font-family: var(--font-primary);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(2,2,2,0.18);
+      border-radius: 0;
+      padding: 0.75rem 0;
+      font-family: var(--font-primary);
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: var(--black);
+      outline: none;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: border-color 0.2s;
+    }
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-bottom-color: var(--black);
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: var(--light-faded);
+      opacity: 0.6;
+    }
+    .contact-form .form-group.has-error input,
+    .contact-form .form-group.has-error textarea {
+      border-bottom-color: #d32f2f;
+    }
+    .form-group-error {
+      font-size: 0.58rem;
+      color: #d32f2f;
+      display: none;
+      margin-top: 0.25rem;
+    }
+    .contact-form .form-group.has-error .form-group-error {
+      display: block;
+    }
+
+    .contact-form .form-submit {
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      padding: 1.1rem 2rem;
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: opacity 0.2s;
+      outline: none;
+    }
+    .contact-form .form-submit:hover {
+      opacity: 0.85;
+    }
+    .contact-form .form-submit:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .form-status {
+      padding: 1.25rem 0;
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+      line-height: 1.6;
+    }
+    .form-success-box {
+      color: var(--black);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    .form-error-box {
+      color: #d32f2f;
+    }
+
+    /* FOOTER */
+    #footer {
+      background: var(--light-grey);
+      color: var(--black);
+      padding: 5rem var(--margin) 2.5rem;
+      border-top: 1px solid rgba(2,2,2,0.06);
+    }
+    .footer-main-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(2,2,2,0.06);
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .footer-logo-img {
+      width: 64px;
+      height: auto;
+    }
+    .footer-right-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 480px;
+      width: 100%;
+    }
+    .footer-slogan-title {
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+    .footer-slogan-sub {
+      font-family: var(--font-primary);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--light-faded);
+      margin-top: 0.25rem;
+    }
+    .footer-form .form-fields {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-form input {
+      flex: 1;
+      min-width: 130px;
+      background: var(--white);
+      border: 1px solid rgba(2,2,2,0.15);
+      padding: 0.75rem 1rem;
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      color: var(--black);
+      outline: none;
+    }
+    .footer-form input::placeholder {
+      color: var(--light-faded);
+    }
+    .footer-form .form-submit {
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .footer-form .form-submit:hover {
+      opacity: 0.85;
+    }
+    .form-success-msg {
+      display: none;
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      color: var(--black);
+      margin-top: 0.5rem;
+    }
+    .footer-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+    }
+    .footer-col-label {
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 1.25rem;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      list-style: none;
+    }
+    .footer-links a {
+      font-family: var(--font-primary);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--light-faded);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: var(--black);
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-primary);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+    .footer-copy {
+      color: var(--black);
+    }
+    .footer-designer {
+      color: var(--light-faded);
+      font-weight: 500;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .contact-main {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+        padding-top: 3rem;
+      }
+      .footer-nav-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+    }
+    @media (max-width: 600px) {
+      .footer-main-row {
+        flex-direction: column;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-brand" id="navBrand" aria-label="KXM Home">kxm.</a>
+
+    <button class="nav-menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
+    </button>
+
+    <div class="nav-right">
+      <a href="shop.html" class="nav-link-shop">Shop Now</a>
+      <a href="javascript:void(0)" class="nav-link-cart js-cart-open">Cart</a>
+    </div>
+  </nav>
+
+  <!-- Menu Overlay -->
+  <div id="menuOverlay" class="menu-overlay">
+    <div class="menu-content">
+      <div class="menu-main-links">
+        <a href="shop.html" class="menu-link">Our Shop</a>
+        <a href="index.html" class="menu-link">Home</a>
+        <a href="about.html" class="menu-link">About Us</a>
+        <a href="lookbook.html" class="menu-link">Lookbook</a>
+        <a href="contact.html" class="menu-link active">Contact</a>
+      </div>
+      <div class="menu-bottom-row">
+        <div class="menu-bottom-left"></div>
+        <div class="menu-bottom-center">
+          <a href="javascript:void(0)" class="menu-sub-link js-cart-open">My Cart</a>
+          <a href="index.html#newsletterForm" class="menu-sub-link" id="joinFamLink">Join The Fam</a>
+        </div>
+        <div class="menu-bottom-right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="menuBackdrop" class="menu-backdrop"></div>
+
+  <!-- CONTACT AREA -->
+  <main class="contact-main">
+    <div class="contact-left">
+      <h1 class="contact-headline">By appointment, by design.</h1>
+      <p class="contact-intro">For enquiries, appointments, and everything else — write to us.</p>
+
+      <div class="contact-rows">
+        <div class="contact-row">
+          <span class="contact-row-label">EMAIL</span>
+          <a href="mailto:divyarajc2@gmail.com" class="contact-row-value">divyarajc2@gmail.com</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-row-label">PHONE</span>
+          <a href="tel:+919979787087" class="contact-row-value">+91 99797 87087</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-row-label">INSTAGRAM</span>
+          <a href="https://www.instagram.com/divyaraj.creates" target="_blank" rel="noopener noreferrer" class="contact-row-value">@divyaraj.creates</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-right">
+      <form id="contactForm" class="contact-form" novalidate>
+        <div class="form-group" id="nameGroup">
+          <label for="contactName" class="form-label">Name</label>
+          <input type="text" id="contactName" name="name" placeholder="NAME SURNAME" required />
+          <span class="form-group-error">Please provide your name</span>
+        </div>
+
+        <div class="form-group" id="emailGroup">
+          <label for="contactEmail" class="form-label">Email</label>
+          <input type="email" id="contactEmail" name="email" placeholder="EMAIL" required />
+          <span class="form-group-error">Please enter a valid email address</span>
+        </div>
+
+        <div class="form-group" id="messageGroup">
+          <label for="contactMessage" class="form-label">Message</label>
+          <textarea id="contactMessage" name="message" rows="5" placeholder="MESSAGE" required></textarea>
+          <span class="form-group-error">Please enter your message</span>
+        </div>
+
+        <!-- Honeypot -->
+        <input type="text" name="company_website" id="contactHoneypot" style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0;" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <!-- Formspree config -->
+        <input type="hidden" name="_subject" value="KXM — Website Enquiry" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+
+        <button type="submit" class="form-submit" id="contactSubmitBtn">SEND ENQUIRY</button>
+
+        <div class="form-status form-success-box" id="contactSuccess" role="status" aria-live="polite" style="display: none;">
+          Received. We'll be in touch.
+        </div>
+        <div class="form-status form-error-box" id="contactError" role="alert" style="display: none;">
+          Something went wrong. Email us directly at <a href="mailto:divyarajc2@gmail.com" style="color: inherit; text-decoration: underline;">divyarajc2@gmail.com</a>.
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-main-row">
+      <div class="footer-logo-col">
+        <img class="footer-logo-img" src="assets/images/kxm-logo-black.png" alt="KXM" />
+      </div>
+      
+      <div class="footer-right-col">
+        <div class="footer-slogan-col">
+          <h3 class="footer-slogan-title">KXM. CLOTHING ARCHIVE</h3>
+          <p class="footer-slogan-sub">A MODERN EXPRESSION OF INTENTION</p>
+        </div>
+
+        <form class="footer-form" id="newsletterForm">
+          <div class="form-fields">
+            <input type="text" id="newsletterName" placeholder="NAME SURNAME" aria-label="Name Surname" required />
+            <input type="email" id="newsletterEmail" placeholder="EMAIL" aria-label="Email" required />
+            <input type="text" name="company_website" style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0;" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <button type="submit" class="form-submit">SUBMIT</button>
+          </div>
+          <div class="form-success-msg" id="newsletterSuccess">
+            Thank you. You're on the list.
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-nav-grid">
+      <div>
+        <p class="footer-col-label">Site Index</p>
+        <ul class="footer-links">
+          <li><a href="shop.html">Shop Now</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="javascript:void(0)" class="js-cart-open">Cart</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-label">Social</p>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/divyaraj.creates" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-label">Get In Touch</p>
+        <ul class="footer-links">
+          <li><a href="mailto:divyarajc2@gmail.com">divyarajc2@gmail.com</a></li>
+          <li><a href="tel:+919979787087">+91 99797 87087</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-label">Legal</p>
+        <ul class="footer-links">
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="returns.html">Refunds</a></li>
+          <li><a href="shipping.html">Shipping</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">All Rights Reserved _ KXM©2026</p>
+      <p class="footer-designer">Website by <a href="https://divyaraj-exhibit.vercel.app/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: inherit;">Divyaraj Creates</a></p>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div id="cartDrawer" class="cart-drawer">
+    <div class="cart-header">
+      <span class="cart-header-title">My Cart</span>
+      <button class="cart-close-btn" id="cartCloseBtn">Close</button>
+    </div>
+    
+    <div class="cart-items-container" id="cartItemsContainer"></div>
+    
+    <div class="cart-footer" id="cartFooter">
+      <div class="cart-footer-row">
+        <span class="cart-footer-label">Subtotal</span>
+        <span class="cart-footer-value" id="cartSubtotalValue">₹0</span>
+      </div>
+      <div class="cart-footer-row">
+        <span class="cart-footer-label">Shipping</span>
+        <span class="cart-footer-value shipping-calculated">Calculated at checkout</span>
+      </div>
+      <div class="cart-footer-divider"></div>
+      <button class="cart-checkout-btn" id="cartCheckoutBtn">Checkout</button>
+    </div>
+
+    <div class="cart-empty-state" id="cartEmptyState">
+      <h3 class="cart-empty-title">Your Cart is Empty</h3>
+      <p class="cart-empty-subtitle">Come on, treat yourself. You deserve it.</p>
+      <a href="shop.html" class="cart-shop-now-btn" id="cartShopNowBtn">[ Shop Now ]</a>
+    </div>
+  </div>
+  <div id="cartBackdrop" class="cart-backdrop"></div>
+
+  <!-- Checkout Demo Modal Overlay -->
+  <div id="checkoutModal" class="checkout-modal-overlay">
+    <div class="checkout-modal">
+      <button class="checkout-modal-close-btn" id="checkoutModalCloseBtn" aria-label="Close modal">&times;</button>
+      <h3 class="checkout-modal-heading">Thank You for Exploring</h3>
+      <p class="checkout-modal-text">This is a demonstration website created for portfolio purposes. Kxm. is an imaginary brand, and purchases cannot be completed.</p>
+      <p class="checkout-modal-text">If you're interested in a website like this for your brand, let's talk.</p>
+      <a href="mailto:divyarajc2@gmail.com" class="checkout-modal-cta-btn">Get in Touch</a>
+    </div>
+  </div>
+
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script>
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/XXXXXXXX';
+
+    // Menu Overlay
+    const body = document.body;
+    const menuToggle = document.getElementById('menuToggle');
+    const menuBackdrop = document.getElementById('menuBackdrop');
+    const menuLinks = document.querySelectorAll('.menu-link');
+
+    function openMenu() {
+      body.classList.add('menu-open');
+      if (menuToggle) menuToggle.setAttribute('aria-expanded', 'true');
+    }
+    function closeMenu() {
+      body.classList.remove('menu-open');
+      if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+    }
+    function toggleMenu() {
+      if (body.classList.contains('menu-open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    }
+
+    if (menuToggle) {
+      menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
+      });
+    }
+    if (menuBackdrop) {
+      menuBackdrop.addEventListener('click', closeMenu);
+    }
+    menuLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    // Contact Form Logic
+    const contactForm = document.getElementById('contactForm');
+    const contactSubmitBtn = document.getElementById('contactSubmitBtn');
+    const contactSuccess = document.getElementById('contactSuccess');
+    const contactError = document.getElementById('contactError');
+    const contactName = document.getElementById('contactName');
+    const contactEmail = document.getElementById('contactEmail');
+    const contactMessage = document.getElementById('contactMessage');
+    const contactHoneypot = document.getElementById('contactHoneypot');
+
+    let lastSubmitTime = 0;
+    let isSubmitting = false;
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Honeypot check
+        if (contactHoneypot && contactHoneypot.value.trim() !== '') {
+          return;
+        }
+
+        // 2-second debounce guard
+        const now = Date.now();
+        if (isSubmitting || (now - lastSubmitTime < 2000)) {
+          return;
+        }
+
+        // Validation
+        let isValid = true;
+        const nameVal = contactName.value.trim();
+        const emailVal = contactEmail.value.trim();
+        const msgVal = contactMessage.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        const nameGroup = document.getElementById('nameGroup');
+        const emailGroup = document.getElementById('emailGroup');
+        const messageGroup = document.getElementById('messageGroup');
+
+        if (!nameVal) {
+          nameGroup.classList.add('has-error');
+          isValid = false;
+        } else {
+          nameGroup.classList.remove('has-error');
+        }
+
+        if (!emailVal || !emailRegex.test(emailVal)) {
+          emailGroup.classList.add('has-error');
+          isValid = false;
+        } else {
+          emailGroup.classList.remove('has-error');
+        }
+
+        if (!msgVal) {
+          messageGroup.classList.add('has-error');
+          isValid = false;
+        } else {
+          messageGroup.classList.remove('has-error');
+        }
+
+        if (!isValid) return;
+
+        lastSubmitTime = now;
+        isSubmitting = true;
+        contactSubmitBtn.disabled = true;
+        contactSubmitBtn.textContent = 'SENDING...';
+        contactSubmitBtn.setAttribute('aria-busy', 'true');
+        contactError.style.display = 'none';
+
+        const formData = new FormData(contactForm);
+        const encodedData = new URLSearchParams(formData).toString();
+
+        fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: encodedData
+        })
+        .then(function (response) {
+          if (response.ok) {
+            contactForm.querySelectorAll('.form-group, #contactSubmitBtn').forEach(function (el) {
+              el.style.display = 'none';
+            });
+            contactSuccess.style.display = 'block';
+          } else {
+            contactError.style.display = 'block';
+            contactError.textContent = 'Something went wrong. Email us directly at divyarajc2@gmail.com.';
+            contactSubmitBtn.disabled = false;
+            contactSubmitBtn.textContent = 'SEND ENQUIRY';
+            contactSubmitBtn.removeAttribute('aria-busy');
+            isSubmitting = false;
+          }
+        })
+        .catch(function () {
+          contactError.style.display = 'block';
+          contactError.textContent = 'Network error. Please check your connection or email us directly at divyarajc2@gmail.com.';
+          contactSubmitBtn.disabled = false;
+          contactSubmitBtn.textContent = 'SEND ENQUIRY';
+          contactSubmitBtn.removeAttribute('aria-busy');
+          isSubmitting = false;
+        });
+      });
+
+      // Clear error states on input
+      [contactName, contactEmail, contactMessage].forEach(function (input) {
+        input.addEventListener('input', function () {
+          const group = input.closest('.form-group');
+          if (group) group.classList.remove('has-error');
+        });
+      });
+    }
+
+    // Footer Newsletter Form
+    const newsletterForm = document.getElementById('newsletterForm');
+    if (newsletterForm) {
+      const formFields = newsletterForm.querySelector('.form-fields');
+      const newsletterSuccess = document.getElementById('newsletterSuccess');
+      const newsletterName = document.getElementById('newsletterName');
+      const newsletterEmail = document.getElementById('newsletterEmail');
+      const newsHoneypot = newsletterForm.querySelector('input[name="company_website"]');
+
+      newsletterForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        if (newsHoneypot && newsHoneypot.value.trim() !== '') {
+          return;
+        }
+
+        const name = newsletterName.value.trim();
+        const email = newsletterEmail.value.trim();
+        if (!name || !email || !email.includes('@')) return;
+
+        formFields.style.opacity = '0';
+        setTimeout(function () {
+          formFields.style.display = 'none';
+          newsletterSuccess.style.display = 'block';
+          newsletterSuccess.offsetHeight;
+          newsletterSuccess.classList.add('show');
+        }, 500);
+
+        fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: new URLSearchParams({
+            name: name,
+            email: email,
+            _subject: 'KXM — Mailing List Signup',
+            _template: 'table',
+            _captcha: 'false'
+          }).toString()
+        }).catch(function (err) {
+          console.error(err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
