@@ -4,8 +4,8 @@ window.KXM_PRODUCTS = {
     "price": "₹30,435",
     "description": "A tailored, double-breasted blazer constructed from mid-weight wool crepe. Featuring structured shoulders, notched lapels, and clean welt pockets. Designed for a sharp, architectural silhouette.",
     "images": [
-      "assets/images/product-1.png",
-      "assets/images/product-1a.png"
+      "assets/images/product-1.webp",
+      "assets/images/product-1a.webp"
     ],
     "hasSizes": true,
     "details": [
@@ -22,8 +22,8 @@ window.KXM_PRODUCTS = {
       "Do not wash or tumble dry"
     ],
     "editorialImages": [
-      "assets/images/lookbook-2.png",
-      "assets/images/about-editorial.png"
+      "assets/images/lookbook-2.webp",
+      "assets/images/about-editorial.webp"
     ],
     "completeTheLook": [
       "ivory-wide-leg",
@@ -37,8 +37,8 @@ window.KXM_PRODUCTS = {
     "price": "₹18,546",
     "description": "Relaxed wide-leg trousers cut from premium Japanese cotton-linen drill. Featuring a high rise, pressed creases, and structured waistband detailing. A balance of ease and precision.",
     "images": [
-      "assets/images/product-2.png",
-      "assets/images/product-2a.png"
+      "assets/images/product-2.webp",
+      "assets/images/product-2a.webp"
     ],
     "hasSizes": true,
     "details": [
@@ -56,8 +56,8 @@ window.KXM_PRODUCTS = {
       "Warm iron"
     ],
     "editorialImages": [
-      "assets/images/lookbook-1aa.png",
-      "assets/images/collection-men.png"
+      "assets/images/lookbook-1aa.webp",
+      "assets/images/collection-men.webp"
     ],
     "completeTheLook": [
       "obsidian-blazer",
@@ -71,8 +71,8 @@ window.KXM_PRODUCTS = {
     "price": "₹45,652",
     "description": "An unstructured, single-breasted overcoat tailored from a luxurious wool-cashmere blend. Unlined with bound seams, providing a fluid drape that moves naturally with the body.",
     "images": [
-      "assets/images/product-3.png",
-      "assets/images/product-3a.png"
+      "assets/images/product-3.webp",
+      "assets/images/product-3a.webp"
     ],
     "hasSizes": true,
     "details": [
@@ -89,8 +89,8 @@ window.KXM_PRODUCTS = {
       "Do not iron"
     ],
     "editorialImages": [
-      "assets/images/lookbook-2.png",
-      "assets/images/about-editorial.png"
+      "assets/images/lookbook-2.webp",
+      "assets/images/about-editorial.webp"
     ],
     "completeTheLook": [
       "silk-bandana",
@@ -104,8 +104,8 @@ window.KXM_PRODUCTS = {
     "price": "₹25,204",
     "description": "A minimalist bias-cut dress crafted from premium heavy silk satin. Featuring a delicate high neckline, low scoop back, and raw finished hem. A quiet statement of pure form.",
     "images": [
-      "assets/images/collection-women.png",
-      "assets/images/collection-women-a.png"
+      "assets/images/collection-women.webp",
+      "assets/images/collection-women-a.webp"
     ],
     "hasSizes": true,
     "details": [
@@ -122,8 +122,8 @@ window.KXM_PRODUCTS = {
       "Steaming recommended"
     ],
     "editorialImages": [
-      "assets/images/collection-women.png",
-      "assets/images/lookbook-1aa.png"
+      "assets/images/collection-women.webp",
+      "assets/images/lookbook-1aa.webp"
     ],
     "completeTheLook": [
       "archive-set",
@@ -137,8 +137,8 @@ window.KXM_PRODUCTS = {
     "price": "From ₹8,084",
     "description": "A curated pairing of our signature fine-gauge ribbed socks and soft organic cotton jersey briefs. Presented in a custom linen storage pouch. The essential foundation of the daily uniform.",
     "images": [
-      "assets/images/collection-accessories.png",
-      "assets/images/collection-accessories-a.png"
+      "assets/images/collection-accessories.webp",
+      "assets/images/collection-accessories-a.webp"
     ],
     "hasSizes": false,
     "details": [
@@ -154,8 +154,8 @@ window.KXM_PRODUCTS = {
       "Do not bleach"
     ],
     "editorialImages": [
-      "assets/images/collection-accessories.png",
-      "assets/images/collection-accessories-a.png"
+      "assets/images/collection-accessories.webp",
+      "assets/images/collection-accessories-a.webp"
     ],
     "completeTheLook": [
       "silence-dress",
@@ -169,8 +169,8 @@ window.KXM_PRODUCTS = {
     "price": "₹32,337",
     "description": "An oversized utility jacket constructed from heavyweight raw organic cotton canvas. Featuring large front cargo pockets and metal shank buttons. It softens and gains character with wear.",
     "images": [
-      "assets/images/lookbook-1.png",
-      "assets/images/lookbook-1aa.png"
+      "assets/images/lookbook-1.webp",
+      "assets/images/lookbook-1aa.webp"
     ],
     "hasSizes": true,
     "details": [
@@ -187,8 +187,8 @@ window.KXM_PRODUCTS = {
       "Iron hot if needed"
     ],
     "editorialImages": [
-      "assets/images/lookbook-1aa.png",
-      "assets/images/collection-men.png"
+      "assets/images/lookbook-1aa.webp",
+      "assets/images/collection-men.webp"
     ],
     "completeTheLook": [
       "ivory-wide-leg",
@@ -202,7 +202,7 @@ window.KXM_PRODUCTS = {
     "price": "₹39,946",
     "description": "A classic belted trench coat made from water-resistant cotton gabardine. Unlined and lightweight, designed for effortless layering. Completed with storm flaps and a deep back vent.",
     "images": [
-      "assets/images/noir-trench.png"
+      "assets/images/noir-trench.webp"
     ],
     "hasSizes": true,
     "details": [
@@ -219,8 +219,8 @@ window.KXM_PRODUCTS = {
       "Wipe clean with a damp cloth if necessary"
     ],
     "editorialImages": [
-      "assets/images/lookbook-2.png",
-      "assets/images/about-editorial.png"
+      "assets/images/lookbook-2.webp",
+      "assets/images/about-editorial.webp"
     ],
     "completeTheLook": [
       "leather-belt",
@@ -234,7 +234,7 @@ window.KXM_PRODUCTS = {
     "price": "₹6,182",
     "description": "A square scarf crafted from lightweight silk twill, featuring a hand-rolled hem. Finished with a subtle printed monochrome print. A versatile accent piece.",
     "images": [
-      "assets/images/silk-bandana.png"
+      "assets/images/silk-bandana.webp"
     ],
     "hasSizes": false,
     "details": [
@@ -249,7 +249,7 @@ window.KXM_PRODUCTS = {
       "Do not wring"
     ],
     "editorialImages": [
-      "assets/images/silk-bandana.png"
+      "assets/images/silk-bandana.webp"
     ],
     "completeTheLook": [
       "obsidian-blazer",
@@ -263,7 +263,7 @@ window.KXM_PRODUCTS = {
     "price": "₹11,413",
     "description": "A spacious tote bag made from heavy-gauge cotton canvas with premium leather handles. Designed for daily use, featuring an interior pocket and reinforced base.",
     "images": [
-      "assets/images/canvas-tote.png"
+      "assets/images/canvas-tote.webp"
     ],
     "hasSizes": false,
     "details": [
@@ -280,7 +280,7 @@ window.KXM_PRODUCTS = {
       "Do not wash"
     ],
     "editorialImages": [
-      "assets/images/canvas-tote.png"
+      "assets/images/canvas-tote.webp"
     ],
     "completeTheLook": [
       "white-edition",
@@ -294,7 +294,7 @@ window.KXM_PRODUCTS = {
     "price": "₹9,035",
     "description": "A wide, insulating scarf knitted from pure merino wool. Soft to the touch and finished with short ribbed hems. The perfect layer for colder months.",
     "images": [
-      "assets/images/wool-scarf.png"
+      "assets/images/wool-scarf.webp"
     ],
     "hasSizes": false,
     "details": [
@@ -310,7 +310,7 @@ window.KXM_PRODUCTS = {
       "Low iron"
     ],
     "editorialImages": [
-      "assets/images/wool-scarf.png"
+      "assets/images/wool-scarf.webp"
     ],
     "completeTheLook": [
       "noir-trench",
@@ -324,7 +324,7 @@ window.KXM_PRODUCTS = {
     "price": "₹13,791",
     "description": "A minimalist belt crafted from Italian bridle leather. Featuring a solid brass buckle and hand-painted edges. Designed to age beautifully and develop a unique patina.",
     "images": [
-      "assets/images/leather-belt.png"
+      "assets/images/leather-belt.webp"
     ],
     "hasSizes": false,
     "details": [
@@ -340,7 +340,7 @@ window.KXM_PRODUCTS = {
       "Keep away from water"
     ],
     "editorialImages": [
-      "assets/images/leather-belt.png"
+      "assets/images/leather-belt.webp"
     ],
     "completeTheLook": [
       "ivory-wide-leg",
@@ -354,7 +354,7 @@ window.KXM_PRODUCTS = {
     "price": "₹17,120",
     "description": "A relaxed shirt cut from washed Belgian linen. Featuring a camp collar, chest pocket, and mother-of-pearl buttons. Breathable and unstructured for warm climates.",
     "images": [
-      "assets/images/linen-shirt.png"
+      "assets/images/linen-shirt.webp"
     ],
     "hasSizes": true,
     "details": [
@@ -371,8 +371,8 @@ window.KXM_PRODUCTS = {
       "Iron warm while damp"
     ],
     "editorialImages": [
-      "assets/images/lookbook-1aa.png",
-      "assets/images/collection-men.png"
+      "assets/images/lookbook-1aa.webp",
+      "assets/images/collection-men.webp"
     ],
     "completeTheLook": [
       "ivory-wide-leg",
@@ -381,6 +381,42 @@ window.KXM_PRODUCTS = {
     ],
     "category": "clothing"
   }
+};
+
+
+// K1: intrinsic dimensions of every shipped WebP (keyed by basename).
+// Templates use KXM_IMG_ATTRS(src) to emit width/height (aspect-ratio reservation, no CLS)
+// plus decoding="async" so large decodes never block the main thread.
+window.KXM_IMG_DIMS = {
+  "hero-image.webp": [1920, 1072],
+  "hero.webp": [1024, 1024],
+  "kxm-logo-black.webp": [384, 407],
+  "about-editorial.webp": [1024, 1024],
+  "lookbook-1.webp": [1400, 1400],
+  "lookbook-1aa.webp": [1024, 1024],
+  "lookbook-2.webp": [1024, 1024],
+  "collection-women.webp": [1200, 1200],
+  "collection-women-a.webp": [1024, 1024],
+  "collection-men.webp": [1024, 1024],
+  "collection-accessories.webp": [1024, 1024],
+  "collection-accessories-a.webp": [1200, 1200],
+  "product-1.webp": [1024, 1024],
+  "product-1a.webp": [1200, 1200],
+  "product-2.webp": [1024, 1024],
+  "product-2a.webp": [1200, 1200],
+  "product-3.webp": [1024, 1024],
+  "product-3a.webp": [1200, 1200],
+  "noir-trench.webp": [1200, 655],
+  "silk-bandana.webp": [1200, 655],
+  "canvas-tote.webp": [1200, 655],
+  "wool-scarf.webp": [1200, 655],
+  "leather-belt.webp": [1200, 655],
+  "linen-shirt.webp": [1200, 655]
+};
+window.KXM_IMG_ATTRS = function (src) {
+  var b = (src || "").split("/").pop();
+  var d = window.KXM_IMG_DIMS[b];
+  return d ? 'width="' + d[0] + '" height="' + d[1] + '" decoding="async"' : 'decoding="async"';
 };
 
 window.KXM_PRODUCTS_READY = true;

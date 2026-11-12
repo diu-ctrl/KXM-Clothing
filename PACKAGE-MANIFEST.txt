@@ -1,0 +1,39 @@
+# KXM K1 PACKAGE MANIFEST
+# Generated: 2026-11-12 (UTC) by verifier build_k1.py
+# Base: live production bytes (recon_k0, drift-checked 2026-11-12)
+# Verify: sha256sum -c PACKAGE-MANIFEST.txt  (inside the package dir)
+# The manifest does not list itself
+#
+d51a07748abcce6c1d96b52e5f3393583f518ffb12610d75ef7679bea7947f4c  5376  KXM-K1-PROMPT.md
+9f0b86429ecfc03cf040c8a4bfa788a761c2bb1f850972eab830ddc94343ac1d  31410  about.html
+f404ee19adca886750598bdac0ec00871d322da1ffab0aba993c32d3e5cfcef2  29632  assets/images/about-editorial.webp
+2ada8e1c06da9717a430b978d2cb05a54a4779049a495b47d2360d876db69c18  31236  assets/images/canvas-tote.webp
+d6099b7303f0f7ba139bcc9e9642708c0823a9765555774090bd84c1d60e82da  69476  assets/images/collection-accessories-a.webp
+60b1e3f5042c044306b9c8082ef05f9ef43382f11aa98cb1deeff86ea195dd2c  78428  assets/images/collection-accessories.webp
+6b7cc535924b06965fff0c928f8a385d62a0734540c8ddaf28fe977471012d51  39096  assets/images/collection-men.webp
+59e7ccfacd0e6a1508c93166f202b9c34b1d44e9f3a14d7725c5103933269051  25062  assets/images/collection-women-a.webp
+2a85e0bd69fde0d66e4b5a07069d834ff61ba74af9c4c39ef012460274125952  27222  assets/images/collection-women.webp
+04ff1911a10cf52bb6ddc102f6beb8de5c32a94866b1c6b76061d8a3aa6a0e1b  36262  assets/images/hero-image.webp
+2d4d756b9d991d44d823416e6668cec4be97154ec6019c4c95df4b2186fb0946  18274  assets/images/hero.webp
+142398a651e9d6d6fb81f41095013987e87b5029c067391dcdcb24df62d95647  36826  assets/images/kxm-logo-black.webp
+7917b92930ab620a939b09f17a0147f39d261eab30545be032372a42e1986642  33024  assets/images/leather-belt.webp
+77d965fda5b3e5884cb02f337c91a659a1d7d1d462ed901fefd67fb161ca948b  29300  assets/images/linen-shirt.webp
+b2bd97f6d9dcb27f9f45729a6ecbb81b6e96059cf68806b7af26063bb22dd342  19454  assets/images/lookbook-1.webp
+bd095b41ebd3bc65e074f4c25ebab8e3ac7d255a263c842bd3ddc42a6d84a74f  17630  assets/images/lookbook-1aa.webp
+ca344849130f4025efaf79a377c908fb479b73ab65b24b871093dc206eeba15a  56788  assets/images/lookbook-2.webp
+ecd414554a519d528399a82bca480258184d5923cad254562f0842be4b38662b  15582  assets/images/noir-trench.webp
+fb2719376c682283cf0477eaaa0ae42ef066e9674f7f8080e193e189d09c40d4  14940  assets/images/product-1.webp
+8a80a2e74cb4586d8143e63337d0632c74190d24213f0f08707e3c02304f3b1e  19034  assets/images/product-1a.webp
+8084ff0588afded593e7337d05ede2e7bb27de32cef78e209604dde2299404e0  8858  assets/images/product-2.webp
+5e81fffec804ee4af4ef9b3c564d286cbbcf3a8819da33e462c00bd153a33a52  19166  assets/images/product-2a.webp
+51aba24abe1c1444acbea4125f54003a6956755742c3c97301228f7cacd12dd9  32102  assets/images/product-3.webp
+b8b2e0336ea299fed697b8bc1011ed62627fc6f2063663cc24f0e79d32aa2d31  21150  assets/images/product-3a.webp
+3ab2382c37eae57f3860a93193598559e7dcb62cad7f5d73dbd6375217a10024  38080  assets/images/silk-bandana.webp
+1a32fc0b53dcf94c199d29bd37f697998bdb71d21f11d64f20d097a416347085  75380  assets/images/wool-scarf.webp
+456d56f31b03952a4209231bc8054b90197f8dcf2ab1a142009957cc9b2d8012  13055  assets/js/products.js
+6e290a381a771402ad5fa970ce6da5d3fa221ba7fd0f3cc4b298d669d9cc2955  5918  assets/js/shop.js
+3696cffedd4bb4d4559dd584a3cad8384e52e5f20c7560d0d0164658b107f46d  33766  contact.html
+4206aaf099c909d20c359815d1e33473d851fb77710cf3286c2d9b3f4bead468  65273  index.html
+90dfb237b8317099bd29e4debc534106b0e7aa2e7a3fb403b77c4a497dd03c6b  27745  lookbook.html
+ae8f38a1c999056572b1b5d9d06f844dd77ae70c43e543b6013237fbe93a0ec8  49039  product.html
+4df9c0fabbb6a5851ee917a5c5ec94be19f784900215ed50f9489caf13793c71  6598  test_k1.js

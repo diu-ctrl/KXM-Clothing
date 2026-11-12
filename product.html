@@ -1119,7 +1119,7 @@
     <!-- Left Column: Image Gallery -->
     <div class="product-images-col">
       <div class="main-image-display" id="mainImageDisplay">
-        <img src="assets/images/product-1.png" alt="KXM product display" id="mainImage" />
+        <img width="1024" height="1024" decoding="async" src="assets/images/product-1.webp" alt="KXM product display" id="mainImage" />
       </div>
       <div class="thumbnail-row" id="thumbnailRow">
         <!-- populated dynamically -->
@@ -1322,7 +1322,7 @@
       product.images.forEach((imgSrc, index) => {
         const card = document.createElement('div');
         card.className = `thumbnail-card ${index === 0 ? 'active' : ''}`;
-        card.innerHTML = `<img src="${imgSrc}" alt="${product.name} Thumbnail ${index + 1}" />`;
+        card.innerHTML = `<img src="${imgSrc}" alt="${product.name} Thumbnail ${index + 1}" ${window.KXM_IMG_ATTRS(imgSrc)} />`;
         card.addEventListener('click', () => {
           // Switch main image with quick fade
           mainImg.style.opacity = '0';
@@ -1371,7 +1371,7 @@
       product.editorialImages.forEach(imgSrc => {
         const div = document.createElement('div');
         div.className = 'editorial-strip-img';
-        div.innerHTML = `<img src="${imgSrc}" alt="Editorial view of ${product.name}" loading="lazy" />`;
+        div.innerHTML = `<img src="${imgSrc}" alt="Editorial view of ${product.name}" loading="lazy" ${window.KXM_IMG_ATTRS(imgSrc)} />`;
         editorialStrip.appendChild(div);
       });
     }
@@ -1387,7 +1387,7 @@
         a.className = 'look-card';
         a.innerHTML = `
           <div class="look-img-container">
-            <img src="${item.images[0]}" alt="${item.name}" loading="lazy" />
+            <img src="${item.images[0]}" alt="${item.name}" loading="lazy" ${window.KXM_IMG_ATTRS(item.images[0])} />
           </div>
           <div class="look-info">
             <span class="look-name">${item.name}</span>

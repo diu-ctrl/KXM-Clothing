@@ -57,14 +57,14 @@
       var delayClass = delayMod === 0 ? '' : ' js-reveal-delay-' + delayMod;
       var hasHover = product.images && product.images.length > 1;
       var hoverImgHtml = hasHover
-        ? '<img class="hover-img" src="' + product.images[1] + '" alt="' + product.name + ' alternate view" loading="lazy" />'
+        ? '<img class="hover-img" src="' + product.images[1] + '" alt="' + product.name + ' alternate view" loading="lazy" ' + window.KXM_IMG_ATTRS(product.images[1]) + ' />'
         : '';
       var hoverClass = hasHover ? ' has-hover' : ' single-img';
 
       return (
         '<a href="product.html?id=' + id + '" class="product-card js-reveal' + delayClass + hoverClass + '">' +
           '<div class="product-img-container">' +
-            '<img class="default-img" src="' + product.images[0] + '" alt="' + product.name + '" loading="lazy" />' +
+            '<img class="default-img" src="' + product.images[0] + '" alt="' + product.name + '" loading="lazy" ' + window.KXM_IMG_ATTRS(product.images[0]) + ' />' +
             hoverImgHtml +
           '</div>' +
           '<div class="product-info">' +
